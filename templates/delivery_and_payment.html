@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Доставка и Оплата</title>
+    <meta name="title" content="Быстрая и качественная доставка по всему городу">
+    <meta name="description" content="У нас вы найдете хороший выбор цветов и другой цветочной продукции по выгодной цене с быстрой и качетсвенной доставкой по Воронежу. Каждому покупателю подарок!">
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+<!-- Доставка -->
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast" style="font-size: 11px">
+            <a style="font-size: 11px" href="/">Главная</a> / <a style="font-size: 11px" href="/delivery" class="active_page" id="active_page">Доставка и Оплата</a>
+        </div>
+        <h1 class="catalog_zag" style="margin-top: 50px; margin-bottom: 30px;">Доставка</h1>
+        <div class="description_explanations" style="font-size: 18px">
+            Команда «Весёлого Одувана» заботится  не только о красоте и свежести цветов, но и о качественной и
+            своевременной доставке.
+            Наша курьерская служба быстро, бережно и с улыбкой доставит Ваш заказ получателю.
+        </div>
+    </div>
+</div>
+
+<div class="catalog" style="min-height: 578px">
+    <div class="container">
+        <div class="catalog_flex_catalog" style="display: block">
+
+            <div class="blog_art_text description_explanations" style="line-height: 130%; font-size: 18px">
+                При заказе от 2 000 руб. доставка БЕСПЛАТНО* в любую точку г. Воронежа.
+                При заказе до 2 000 руб. стоимость доставки рассчитывается индивидуально
+                в зависимости от удаленности района доставки.
+            </div>
+
+            <p style="font-size: 16px; margin-top: 20px;">
+                *не распространяется на праздничные дни, в том числе с 5 по 8 марта стоимость доставки
+                рассчитывается из удаленности вашего района.
+                Возможны задержки до 2,5 часов ввиду загруженности наших курьеров! Просим учитывать это при заказе.
+                Доставка осуществляется с 08.00 до 20.00.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--  оплата -->
+<div class="catalog">
+    <div class="container">
+        <h1 class="catalog_zag" style="margin-top: 40px; margin-bottom: 20px;">Оплата</h1>
+        <div class="description_explanations" style="width: 100%; font-size: 18px; margin-bottom: 25px;">
+            Для удобства наших клиентов мы предлагаем несколько вариантов оплаты Ваших заказов.
+        </div>
+        <h2 style="font-size: 40px; margin-bottom: 24px; font-weight: 600">
+            Для физических лиц
+        </h2>
+        <div>
+            <ul style="margin-bottom: 10px;">
+                <li class="payment_item">1. Оплата наличными деньгами  или по карте в цветочной мастерской «Весёлый Одуван» по адресу: г.Воронеж, пр-т. Патриотов, 23/Е.</li>
+                <li class="payment_item">2. Оплата наличными деньгами курьеру в момент доставки заказа.</li>
+                <li class="payment_item">3. Оплата переводом на карту Сбербанка.</li>
+                <li class="payment_item">4. Оплата электронными деньгами.</li>
+            </ul>
+        </div>
+
+        <h2 style="font-size: 40px; margin-bottom: 24px; font-weight: 600">
+            Для юридических лиц
+        </h2>
+        <div>
+            <ul>
+                <li>Оплата по безналичному расчету</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div class="catalog" style="min-height: 578px">
+    <div class="container">
+        <div class="catalog_flex_catalog" style="display: block">
+            <div class="catalog_zag" style="text-align: center; margin-bottom: 30px;">
+               Возврат
+            </div>
+            <div class="blog_art_text description_explanations" style="line-height: 110%; width: 100%; font-size: 20px">
+                Флористы «Весёлого Одувана» тщательно собирают каждый букет и композицию, отбирая только лучшие цветы. Мы гарантируем их свежесть и максимальное соответствие доставляемого заказа информации, опубликованной на сайте ……В зависимости от сезонности, наличия цветов и других факторов мы оставляем за собой право замены цветов в букете после предварительного согласования с заказчиком.
+                В соответствии с Законом Российской Федерации «О защите прав потребителей» от 07.02.1992 № 2300-1 (в ред. от 25.10.2007г.) и Постановлением Правительства Российской Федерации от 19.01.1998 № 55 (в ред. 27.03.2007г.) срезанные цветы и горшечные растения обмену и возврату не подлежат (указаны в Перечне непродовольственных товаров надлежащего качества, не подлежащих возврату или обмену).
+                Вы имеет право отказаться от получения товара в момент его доставки, если доставленный товар ненадлежащего качества (на основании п.3 ст. 497 ГК РФ, статья 21 Закона «О защите прав потребителей»). Все претензии о качестве и спорные ситуации мы рассмотрим в максимально короткие сроки.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'utilites.html' %}
+
+<script>
+    {#let id = {{ id }};#}
+    active_page.href = location.href;
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Вакансии</title>
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+<!-- Страница статьи -->
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast" style="font-size: 28px">
+            <a style="font-size: 28px" href="/">Главная</a> / <a style="font-size: 28px" href="/vacancies" class="active_page" id="active_page">Вакансии</a>
+        </div>
+        <h1 class="catalog_zag" style="margin-top: 50px; margin-bottom: 30px;">Вакансии</h1>
+    </div>
+</div>
+
+<div class="catalog" style="padding: 50px 0; min-height: 578px">
+    <div class="container">
+        <div class="catalog_flex_catalog">
+            <div class="blog_art_text description_explanations" style="line-height: 130%; padding-left: 0; width: 100%;">
+                <h2 style="font-size: 70px; margin-bottom: 30px;">Флорист</h2>
+                <div style="font-size: 38px; margin-bottom: 20px;">
+                    Вы можете стать частью "Веселый Одуван"
+                </div>
+                <p style="font-size: 35px">Направьте заявку на:</p>
+                <div class="connection" style="margin-bottom: 20px; margin-top: 40px;">
+                    <a  style="color: #F877AD;" href="tel:89204650703">- whatsapp - 89203650703</a>
+                </div>
+                <div class="connection">
+                    <a style="color: #F877AD" href="mailto:vacancyoduvan@yandex.ru">-почту vacancyoduvan@yandex.ru</a>
+                </div>
+                <div style="font-size: 40px; margin-top: 80px">
+                    К рассмотрению принимаются заявки с "Резюме" и "Портфолио работ".
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% include 'utilites.html' %}
+
+<script>
+    {#let id = {{ id }};#}
+    active_page.href = location.href;
+</script>
+</body>
+</html>

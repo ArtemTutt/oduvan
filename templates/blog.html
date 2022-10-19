@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Блог</title>
+
+    <meta name="description" content="Цветы и цветочная продукция всегда свежие и по отличной цене. Быстрая и качественная доставка по всему Воронежу.">
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+<!-- Страница статьи -->
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast">
+            <a href="/">Главная</a><span style="font-size: 35px">/</span><a href="/blog" class="active_page" id="active_page">Блог</a>
+        </div>
+    </div>
+</div>
+
+<div class="catalog" style="min-height: 483px">
+    <div class="container" style="text-align: center" id="articles_place">
+
+
+
+    </div>
+</div>
+
+
+
+{% include 'utilites.html' %}
+
+<script>
+    {#let id = {{ id }};#}
+    {#active_page.href = location.href;#}
+
+    loadBlog();
+
+    function loadBlog(){
+        $.ajax({
+            url: '/api/articles/get',
+            type: "GET",
+            success: function (msg) {
+                console.log(msg);
+                drawArticles(msg['message']['articles']);
+            }
+        })
+    }
+
+    function drawArticles(articles){
+        articles.map((article) => {
+            articles_place.innerHTML += `
+            <div class="blog_item_main" style="margin-right: 0; width: auto;">
+                <div class="blog_item" style="margin-bottom: 60px">
+                    <div class="blog_item_info" id="card-${article.id}">
+                            <div class="blog-image-overlay">
+                                <img style="width: 100%;" src="/storage/${article.image}" alt="${article.title}">
+                            </div>
+                            <div class="blog_item_text">
+                                <div class="blog_item_text_zag">
+                                    ${article.title}
+                                </div>
+                                <div class="blog_item_text_preview">
+                                    ${article.text}
+                                </div>
+                                <a href="/article?id=${article.id}" class="blog_item_text_read" >
+                                    Прочитать
+                                </a>
+                            </div>
+                    </div>
+                </div>
+            </div>`
+        })
+    }
+
+
+</script>
+</body>
+</html>

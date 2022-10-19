@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Веселый Одуван</title>
+    <meta name="title" content="Интернет магазин цветов Одуван">
+    <meta name="description"
+          content="У нас вы найдете хороший выбор цветов и другой цветочной продукции по выгодной цене с быстрой и качетсвенной доставкой по Воронежу. Каждому покупателю подарок!">
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+
+<!-- Первый блок на главной -->
+<div class="main_background">
+    <img src="/static/img/main_mobile_bg.png" class="main_background_img" alt="Главная картинка">
+    <div class="main_background_text">
+        <h1 class="main_zag">
+            ДОСТАВКА <br> БУКЕТОВ
+        </h1>
+        <strong class="main_sub_zag">Закажи свой идеальный букет</strong>
+        <div id="down_to_catalog"><span class="fa fa-chevron-down"></span></div>
+    </div>
+</div>
+
+<!-- Наш каталог -->
+<div class="catalog" id='our_catalog'>
+    <div class="container">
+        <h2 class="catalog_zag" style="margin-bottom: 40px;">Наш каталог</h2>
+        <!-- Наш каталог - карточки -->
+
+        <div class="cont_on_horizontscroll" style="height: 600px;">
+
+            <div class="card_on_main" id="card_on_main" style="display: flex">
+                <div class="card_main_item" id="card_main_item" style="display: none; width: 600px; margin-right: 45px">
+                    <div class="card_main_bg"></div>
+                    <div style="z-index:10">
+                        <span class="buckets">Букеты</span>
+                        <strong class="name_buckets">
+                            Монобукеты
+                        </strong>
+
+                        <div class="to_choose_href">
+                            <a href="" class="go_to_cat">Выбрать <span style="margin-left: 20px"
+                                                                       class="fa fa-chevron-right"></span></a>
+                        </div>
+                    </div>
+                    <img src="" class="main_cat_img"
+                         alt="Картинка каталога">
+                </div>
+            </div>
+        </div>
+
+        <a class="all_catalog_href href_catalog" href="/catalog"
+           style="margin-top: 30px; width: 400px; height: 100px; font-size: 40px">
+            Весь каталог
+        </a>
+
+    </div>
+</div>
+
+
+<!-- 5 шагов к доставке -->
+<div class="catalog" style="background:rgba(41, 48, 72, 0.1);">
+    <div class="container" style="text-align: center">
+        <h3 class="catalog_zag" style="padding-bottom: 25px;">5 шагов к доставке</h3>
+        <div class="why_me_flex">
+            <div class="why_me_flex_item" style="position: relative">
+                <div class="item_num">
+                    <div class="question_place">
+                        1
+                    </div>
+                    <img src="../../../oduvan-frontend/static/img/bouquet.svg" style="width: 150px; height: auto;" alt="Букет">
+                </div>
+                <div class="item_zag">
+                    Заказ
+                </div>
+                <div class="sub_zag">
+                    Выберите букет из каталога и оформите заказ
+                </div>
+                <img src="../../../oduvan-frontend/static/img/lineleft_mob.svg"
+                     style="position: absolute; top: 50px; left: -25px; width: 106px;"/>
+            </div>
+
+            <div class="why_me_flex_item" style="position: relative">
+                <div class="item_num">
+                    <div class="question_place">
+                        2
+                    </div>
+                    <img src="../../../oduvan-frontend/static/img/structural.svg" style="width: 150px; height: auto;" alt="Струкртура"/>
+                </div>
+                <div class="item_zag">
+                    Детали
+                </div>
+                <div class="sub_zag">
+                    Мы перезвоним в течение 15 минут и уточним детали
+                </div>
+                <img src="../../../oduvan-frontend/static/img/lineright_mob.svg"
+                     style="position: absolute; top: 50px; right: -25px; width: 106px;"/>
+            </div>
+
+            <div class="why_me_flex_item" style="position: relative">
+                <div class="item_num">
+                    <div class="question_place">
+                        3
+                    </div>
+                    <img src="../../../oduvan-frontend/static/img/payment.svg" style="width: 150px; height: auto;" alt="Оплата"/>
+                </div>
+                <div class="item_zag">
+                    Оплата
+                </div>
+                <div class="sub_zag">
+                    Оплатите заказ онлайн или при получении
+                </div>
+                <img src="../../../oduvan-frontend/static/img/lineleft_mob.svg"
+                     style="position: absolute; top: 50px; left: -25px; width: 106px;"/>
+            </div>
+
+            <div class="why_me_flex_item" style="position: relative">
+                <div class="item_num">
+                    <div class="question_place">
+                        4
+                    </div>
+                    <img src="../../../oduvan-frontend/static/img/assemblywomen.svg" style="width: 150px; height: auto;" alt="Сборка"/>
+                </div>
+                <div class="item_zag">
+                    Сборка
+                </div>
+                <div class="sub_zag">
+                    Учтем пожелания и соберем идельный букет
+                </div>
+                <img src="../../../oduvan-frontend/static/img/lineright_mob.svg"
+                     style="position: absolute; top: 50px; right: -25px; width: 106px;"/>
+            </div>
+
+            <div class="why_me_flex_item">
+                <div class="item_num">
+                    <div class="question_place">
+                        5
+                    </div>
+                    <img src="../../../oduvan-frontend/static/img/deliverycar.svg" style="width: 150px; height: auto;" alt="Доставка"/>
+                </div>
+                <div class="item_zag">
+                    Доставка
+                </div>
+                <div class="sub_zag">
+                    Курьер позвонит за 30 минут и привезет вовремя
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Популярное -->
+<div class="catalog" style="background: rgba(41, 48, 72, 0.1);">
+    <div class="container">
+        <h2 class="catalog_zag" style="margin-bottom: 40px">Популярное</h2>
+        <div id="swiper_place">
+            <div class="row rw m-t-16 generelSlide" id="pop_slider_place">
+                <!-- Slider Banners -->
+                <div class="col-xs-12">
+                    <div class="swiper-container" style="overflow-x: hidden">
+                        <div class="swiper-wrapper"></div>
+                        <!--                        <div class="swip_left_arrow"><span class="fa fa-chevron-left swip_arrow"></span></div>-->
+                        <!--                        <div class="swip_right_arrow"><span class="fa fa-chevron-right swip_arrow"></span></div>-->
+                        <!--                        <div class="pagination_place">-->
+                        <!--                            <div class="swiper-pagination" style="position:static"></div>-->
+                        <!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="all_catalog_href href_catalog" href="/catalog?sorted_type=5"
+           style="margin-top: 30px; width: 400px; height: 100px; font-size: 40px">
+            Весь каталог
+        </a>
+    </div>
+</div>
+
+
+<!-- Скидки -->
+<div class="catalog" style="background: rgba(41, 48, 72, 0.1);">
+    <div class="container">
+        <h2 class="catalog_zag" style="margin-bottom: 40px">Скидки</h2>
+        <div id="swiper_place_disk">
+            <div class="row rw m-t-16 generelSlide" id="disc_swiper_place">
+                <!-- Slider Banners -->
+                <div class="col-xs-12">
+                    <div class="swiper-container" style="overflow-x: hidden">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="all_catalog_href href_catalog" href="/catalog?sorted_type=4"
+           style="margin-top: 30px; width: 400px; height: 100px; font-size: 40px">
+            Все скидки
+        </a>
+    </div>
+</div>
+
+
+<!-- Индивидуальный заказ букета -->
+<div class="individual_order">
+    <div class="individual_order_info">
+        <div class="individual_order_info_text_img">
+            <img src="../../../oduvan-frontend/static/img/individual_mobile_img.png" alt="Индивидуальный заказ букетов">
+        </div>
+        <div class="individual_order_info_text">
+            <div class="individual_order_info_text_info">
+                <div class="bucket_na_zakaz" style="margin-top: 20px; margin-bottom: 20px;">Букет на заказ</div>
+                <h3 class="individual_zakaz">Индивидуальный <br> заказ букета</h3>
+                <div class="individual_info">
+                    Не нашли то, что искали<span class="question">?</span> <br> Оформите индивидуальный заказ! Опишите
+                    пожелания по цветовой гамме, составу
+                    и упаковке
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; padding-top: 30px">
+                    <input type="text" class="popup_input individual_order_inp" placeholder="Введите свое имя"
+                           style="width: 70%" id="individual_name"/>
+                    <input type="tel" class="popup_input phone_number individual_order_inp" placeholder="Введите номер телефона"
+                           id="phone_number_order"
+                           style="width: 70%"/>
+                </div>
+                <div style="display: flex;margin: 0 auto;justify-content: center">
+                    <a class="all_catalog_href" id="individual_order_btn"
+                       style=" width: 70%; height: 100px; font-size: 40px">
+                        Сделать заказ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Комментарии -->
+<div class="individual_order">
+    <div class="individual_order_info">
+        <div class="individual_order_info_text_img">
+            <img src="/static/img/for_comment.png" style="object-fit: cover" alt="Индивидуальный заказ букетов">
+        </div>
+        <div class="individual_order_info_text">
+            <div class="individual_order_info_text_info">
+                <div class="bucket_na_zakaz" style="margin-top: 20px; margin-bottom: 20px;">Обратная связь</div>
+                <h3 class="individual_zakaz">Расскажите о качестве услуг</h3>
+                <textarea class="comment_textarea" id="textar"
+                          placeholder="Всё ли вам понравилось? Есть ли замечания к магазину?"></textarea>
+                <div style="display: flex;margin: 0 auto;justify-content: center">
+                    <div class="all_catalog_href" id="send_comment"
+                         style=" width: 80%; height: 100px; font-size: 40px">
+                        Оставить отзыв
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Блог -->
+<div class="catalog">
+    <div class="container">
+        <h2 class="catalog_zag" style="margin-bottom: 40px">Блог</h2>
+    </div>
+    <div class="cont_on_horizontscroll">
+        <div class="container" id="articles_place" style="display: flex">
+
+
+        </div>
+    </div>
+    <div class="container">
+        <a class="all_catalog_href" href="/blog" style="margin-top: 30px; width: 400px; height: 100px; font-size: 40px">
+            Больше статей
+        </a>
+    </div>
+</div>
+
+
+<!-- Краткая инфа перед футером -->
+<div class="catalog" id="about_pered_footer" style="padding-top: 150px;">
+    <div class="pink_item_center"></div>
+    <div class="pink_item_left"></div>
+    <div class="pink_item_right"></div>
+    <div class="container">
+        <div class="catalog_flex_catalog">
+            <div class="info_pered_footer_img">
+                <img src="../../../oduvan-frontend/static/img/img_pered_footer_mobile.png" alt="Картинка информации">
+            </div>
+            <div class="info_pered_footer_text">
+                <div class="blog_item_text_zag">
+                    Свадебные букеты
+                </div>
+                <div class="description_explanations">
+                    Главная история о любви всегда ваша. Особенной в ней должна быть каждая деталь, и букет - не
+                    исключение
+                </div>
+            </div>
+        </div>
+        <div class="catalog_flex_catalog">
+            <div class="info_pered_footer_img">
+                <img src="../../../oduvan-frontend/static/img/img_pered_footer3.png" alt="Картинка информации">
+            </div>
+            <div class="info_pered_footer_text">
+                <div class="blog_item_text_zag">
+                    Букеты для дома
+                </div>
+                <div class="description_explanations">
+                    На маленьких подарках держится дружба, на больших - любовь. И только тот подарок, что
+                    дополнен
+                    изысканным букетом, свидетельствует о хорошем вкусе
+                </div>
+            </div>
+        </div>
+        <div class="catalog_flex_catalog">
+            <div class="info_pered_footer_img">
+                <img src="../../../oduvan-frontend/static/img/img_pered_footer2.png" alt="Картинка информации">
+            </div>
+            <div class="info_pered_footer_text">
+                <div class="blog_item_text_zag">
+                    Букеты в подарок
+                </div>
+                <div class="description_explanations">
+                    Домашний уют - одно из сокровищ мира, в котором все продумано до мелочей. И если вы все
+                    ещё
+                    думаете,
+                    что дом пустоват, принесите в него “пушистый” букет
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'utilites.html' %}
+
+<script>
+
+    document.getElementById('individual_name').addEventListener('keyup', function () {
+        this.value = this.value.replace(/[0-9.]/g, "")
+    });
+    loadBlog();
+
+    function loadBlog() {
+        let data = {
+            'number': 3,
+        }
+
+        $.ajax({
+            url: '/api/articles/get_last',
+            type: "GET",
+            data: data,
+            success: function (msg) {
+                drawArticles(msg['message']['articles']);
+                let inputs = document.getElementsByClassName('individual_order_inp');
+                for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].oninput = function () {
+                        inputs[i].classList.remove('error');
+                    }
+                }
+                textar.oninput = function () {
+                    textar.classList.remove('empty_comment');
+                }
+            }
+        })
+    }
+
+    function drawArticles(articles) {
+        articles.map((article) => {
+
+            articles_place.innerHTML += `
+            <div class="blog_item_main" style="margin-right: 0; width: auto;">
+                <div class="blog_item"  style="width: 800px; min-height: 650px">
+                    <div class="blog_item_info" style="width: 800px; height: 800px;">
+                        <img style="width: 100%; height: 510px; object-fit:cover;" src="/storage/${article.image}" alt="${article.title}">
+                            <div class="blog_item_text">
+                                <div class="blog_item_text_zag">
+                                    ${article.title}
+                                </div>
+                                <div class="blog_item_text_preview">
+                                    ${article.text}
+                                </div>
+                                <a href="/article?id=${article.id}" class="blog_item_text_read" >
+                                    Прочитать
+                                </a>
+                            </div>
+                    </div>
+                </div>
+            </div>`
+        })
+
+    }
+
+    loadMainCategory();
+
+    function loadMainCategory() {
+        $.ajax({
+            url: '/api/categories/get_for_main',
+            type: "GET",
+            success: function (msg) {
+                drawMainCategory(msg['message']['categories']);
+            }
+        })
+    }
+
+    $("#phone_number_order").mask("+7(999)999-99-99");
+    maskPhone(phone_number_order);
+
+    function drawMainCategory(categories) {
+        {#meta_keywords.setAttribute('content', meta_keywords.getAttribute('content') + ' ' + categories[i]['parent_name'] + ' ' + msg['message']['products']);#}
+        for (let i = 0; i < categories.length; i++) {
+            let box = card_main_item.cloneNode(true);
+            box.id = '';
+            let name_cat = box.getElementsByClassName('buckets')[0];
+            let name_buckets = box.getElementsByClassName('name_buckets')[0];
+            let href = box.getElementsByClassName('go_to_cat')[0];
+            let main_cat_img = box.getElementsByClassName('main_cat_img')[0];
+            main_cat_img.alt = categories[i]['name'];
+            main_cat_img.src = '/storage/' + categories[i]['image'];
+            if (categories[i]['parent_id'] !== 0) name_cat.innerText = categories[i]['parent_name'];
+            else {
+                name_buckets.style.marginTop = '55px';
+                name_cat.style.display = 'none';
+            }
+            name_buckets.innerText = categories[i]['name'];
+            if (categories[i]['parent_id'] === 0) href.href = `/catalog?category_id=${categories[i]['id']}`;
+            else href.href = `/catalog?category_id=${categories[i]['parent_id']}&sub_category=${categories[i]['id']}`;
+            box.style.display = 'inline-block';
+            card_on_main.append(box);
+        }
+    }
+
+    down_to_catalog.onclick = function (e) {
+        e.preventDefault();
+        document.getElementById('our_catalog').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        })
+    }
+
+    loadProducts();
+
+    function loadProducts() {
+        $('.delete_card').remove();
+        let data = {
+            'sorted_type': 5,
+            'page_count': 16,
+        }
+        $.ajax({
+            url: '/site/products/smart',
+            type: 'POST',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            success: function (msg) {
+                createSlider(msg['message']['products'], 'swiper_place');
+            }
+        });
+    }
+
+    loadDiscProduct();
+
+    function loadDiscProduct() {
+        $('.delete_card').remove();
+        let data = {
+            'sorted_type': 4,
+            'page_count': 16,
+        }
+        $.ajax({
+            url: '/site/products/smart',
+            type: 'POST',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            success: function (msg) {
+                createSlider(msg['message']['products'], 'disc_swiper_place');
+            }
+        });
+    }
+
+
+    function createSlider(products, place) {
+        if (place === 'disc_swiper_place') $('.delete-slider-2').remove()
+        else $('.delete-slider-1').remove();
+        let box = pop_slider_place.cloneNode(true);
+        box.removeAttribute('id');
+        if (place === 'disc_swiper_place') box.classList.add('delete-slider-2');
+        else box.classList.add('delete-slider-1');
+        let swiper = box.getElementsByClassName('swiper-container')[0];
+        let wrapper = box.getElementsByClassName('swiper-wrapper')[0];
+        for (let i = 0; i < products.length; i++) {
+            let slider = createProduct(products[i]);
+            let swiper_slide = document.createElement('div');
+            swiper_slide.className = 'swiper-slide';
+            slider.style.display = 'block';
+            slider.style.width = '100%';
+            wrapper.append(swiper_slide);
+            swiper_slide.append(slider);
+            let sw = new Swiper(swiper, {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 10,
+                grabCursor: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                },
+                resistance: true,
+                on: {
+                    init() {
+                        this.el.addEventListener('mouseenter', () => {
+                            this.autoplay.stop();
+                        });
+
+                        this.el.addEventListener('mouseleave', () => {
+                            this.autoplay.start();
+                        });
+                    }
+                },
+            });
+            document.getElementById(place).append(box);
+        }
+    }
+
+
+    individual_order_btn.onclick = function () {
+        individualOrder();
+    }
+
+    // Сделать индивидуальный заказ
+    function individualOrder() {
+        let inputs = document.getElementsByClassName('individual_order_inp');
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value === '') {
+                inputs[i].classList.add('error');
+            }
+        }
+        if (document.getElementsByClassName('error').length) return notification('Заполните обязательные поля!', 1)
+
+        let data = {
+            'name': inputs[0].value,
+            'phone': inputs[1].value,
+        }
+        $.ajax({
+            url: '/api/order/create',
+            data: data,
+            success: function (msg) {
+                if (msg['status'] === 'ok') {
+                    inputs[0].value = '';
+                    inputs[1].value = '';
+                    return notification('Заказ успешно создан. Вам скоро позвонят.', 2)
+                }
+            }
+        })
+    }
+
+    send_comment.onclick = function () {
+        sendComment();
+    }
+
+
+    function sendComment() {
+        if (textar.value === '') {
+            textar.classList.add('empty_comment');
+            return notification('Заполните обязательные поля!', 1);
+        }
+        let data = {
+            'text': textar.value
+        }
+        $.ajax({
+            url: '/api/comment/create',
+            type: "GET",
+            data: data,
+            success: function (msg) {
+                textar.value = '';
+                if(msg.status === 'ok') return notification('Спасибо за ваш комментарий!', 2);
+            }
+        })
+    }
+
+</script>
+
+</body>
+</html>

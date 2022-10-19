@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог</title>
+    <meta name = "title" content="Купить свежие цветы в городе Воронеж">
+    <meta name="description" content="У нас вы найдете хороший выбор цветов и другой цветочной продукции по выгодной цене с быстрой и качетсвенной доставкой по Воронежу. Каждому покупателю подарок!">
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+
+<div class="catalog" style="background: #e9eaec">
+    <div class="container">
+        <div class="place_breadcoast" id="place_bread" style="margin-bottom: 50px; font-size: 35px">
+            <a href="/">Главная</a> / <a href="" id="bread_catalog">Каталог</a>
+        </div>
+        <div id="place_top_cats">
+
+        </div>
+        <!-- Категории -->
+        <div id="catalog_category_place" style="padding-bottom: 25px;">
+            <div class="catalog_category all" id="catalog_cat_vse" style="display: inline-block">
+                <div class="catalog_category_item _active" id="vse">
+                    Все
+                </div>
+            </div>
+            <div class="catalog_category" id="catalog_category_card" style="display: none">
+                <div class="catalog_category_item">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog_flex_catalog sorted_and_filters" style="display: flex;">
+            <div class="filters_place" id="filter_place" style="margin-bottom: 25px; display: none">
+                Фильтры и сортировка<span class="fa fa-chevron-down my_class_img" id="my_class_img"></span>
+            </div>
+        </div>
+
+        <div id="sorted_select_items_list" style="display: none;">
+            <div class="sorted_select_items">
+                <input class="sorted_select_item sorted_po _active_btn" placeholder="По названию" readonly />
+                <input class="sorted_select_item sorted_po" placeholder="По возрастанию цены" readonly />
+                <input class="sorted_select_item sorted_po" placeholder="По убыванию цены" readonly />
+                <input class="sorted_select_item sorted_po" placeholder="По размеру скидки" readonly />
+                <input class="sorted_select_item sorted_po" placeholder="Самые популярные" readonly />
+            </div>
+        </div>
+
+
+
+        <div class="appear_about_pressing" id="appear_about_pressing" style="display:none">
+            <div class="appear_about_pressing_left">
+                <div class="sorted_zag" id="my_privat_mar" style="font-size: 50px; margin-bottom: 20px;">
+                    Цена
+                </div>
+                <div class="catalog_flex_catalog" style="width:80%;">
+                    <div class="price_place" style="margin-bottom: 25px">
+                        <span style="font-size: 30px;">От</span>
+                        <div id="price_ot" class="price_price">
+                            <input type="number" value="0" id="price_min"> ₽
+                        </div>
+                    </div>
+                    <div class="price_place">
+                        <span style="font-size: 30px">До</span>
+                        <div id="price_do" class="price_price">
+                            <input type="number" value="100000" id="price_max"> ₽
+                        </div>
+                    </div>
+                </div>
+                <input type="range" id="price_controller" min="" max=""
+                       style="width: 73%; margin-top: 25px;margin-bottom: 25px">
+                <div id="flowers_place">
+                    <div class="choose_flower" id="choose_flower" style="display: none; font-size: 40px">
+
+                        <input type="checkbox" id="choose_flow_one" name="get_other_people"
+                               class="scal_chek checkbox_for_choose_flower custom-checkbox" style="margin-top: 20px;">
+                        <label for="choose_flow_one" class="lab_desc name_flower" style="font-size: 37px"></label>
+
+                        <!--                <input type="checkbox" class="checkbox_for_choose_flower">-->
+                        <!--                <span class="name_flower">Роза кустовая</span>-->
+                    </div>
+                </div>
+
+                <div class="sorted_zag" style="font-size: 50px; margin-top: 20px; margin-bottom: 20px">
+                    Упаковка
+                </div>
+                {#                <div class="choose_flower" style="font-size: 36px">#}
+                {#                    <input type="checkbox" id="choose_flow-one" name="get_other_people" class="scal_chek checkbox_for_choose_flower custom-checkbox" value="1" style="margin-top: 20px;">#}
+                {#                    <label for="choose_flow-one" class="lab_desc name_flower" style="font-size: 37px">Плёнка</label>#}
+                {#                    <!--            <input type="checkbox" class="checkbox_for_choose_flower packages_inp" value="1">-->#}
+                {#                    <!--            <span>Плёнка</span>-->#}
+                {#                </div>#}
+                {#                <div class="choose_flower" style="font-size: 36px">#}
+                {#                    <input type="checkbox" id="choose_flow-two" name="get_other_people" class="scal_chek checkbox_for_choose_flower custom-checkbox" value="2" style="margin-top: 20px;">#}
+                {#                    <label for="choose_flow-two" class="lab_desc name_flower" style="font-size: 37px">Крафт.плёнка</label>#}
+                {#                    <!--            <input type="checkbox" class="checkbox_for_choose_flower packages_inp" value="2">-->#}
+                {#                    <!--            <span>Крафт.плёнка</span>-->#}
+                {#                </div>#}
+                {#                <div class="choose_flower" style="font-size: 36px">#}
+                {#                    <input type="checkbox" id="choose_flow-three" name="get_other_people" class="scal_chek checkbox_for_choose_flower custom-checkbox" value="3" style="margin-top: 20px;">#}
+                {#                    <label for="choose_flow-three" class="lab_desc name_flower" style="font-size: 37px">Ленты</label>#}
+                {#                    <!--            <input type="checkbox" class="checkbox_for_choose_flower packages_inp" value="3">-->#}
+                {#                    <!--            <span>Ленты</span>-->#}
+                {#                </div>#}
+                <div id="packages_place">
+                    <div class="choose_flower" id="choose_pack" style="display: none">
+                        <div class="checkbox" style="margin-left:5px;">
+                            <input type="checkbox" id="choose_flow_one"
+                                   class="scal_chek checkbox_for_choose_flower custom-checkbox"
+                                   style="margin-top: 20px;">
+                            <label for="choose_flow_one" class="lab_desc">
+                                <span class="name_flower"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Кнопки дейстивя -->
+            <div class="all_catalog_href" style="float: none;margin: 20px 0 15px;height: 110px;width: 100%"
+                 id="startsorting">
+                Применить
+            </div>
+            <div style="text-align: center">
+                <div class="bucket_na_zakaz" style="text-align: center;cursor: pointer;display: contents"
+                     id="throw_off">
+                    Сбросить
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Место для вывода карточек -->
+        <!--        <div id="item_card_place" style="padding:35px 0; display: block;">-->
+        <!--            &lt;!&ndash; Карточка товара &ndash;&gt;-->
+        <!--            <div class="slider_item_card" id="card_product">-->
+        <!--                <div class="right_nav_place">-->
+        <!--                    <div class="right_nav_item">-->
+
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <div class="discount_place">-->
+        <!--                    <div class="percent_place">-->
+        <!--                        <span class="fa fa-percent"></span>-->
+        <!--                    </div>-->
+        <!--                    <div class="discount_text">-->
+        <!--                        20% скидка-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--                <a class="slider_item_card_img_place" href="">-->
+        <!--                    <img src="../static/img/catalog_img.png" class="slider_img">-->
+        <!--                </a>-->
+        <!--                <div class="name_and_price">-->
+        <!--                    <div class="slider_name_bucket">Букет "Индиго"</div>-->
+        <!--                    <div class="catalog_flex_catalog"-->
+        <!--                         style="align-items: center;justify-content: space-between;padding: 0 15px;">-->
+        <!--                        <div>-->
+        <!--                            <div class="price">-->
+        <!--                                5400 Р-->
+        <!--                            </div>-->
+        <!--                            <div class="disc_price_bucket">-->
+        <!--                                2 600 Р-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                        <div class="add_to_basket_card">&lt;!&ndash; повесить onclick &ndash;&gt;-->
+        <!--                            <span class="fas fa-shopping-bag"></span>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+
+        <!--                    <div class="added_product" style="display: none">-->
+        <!--                        <div>-->
+        <!--                            <span class="fa fa-minus"></span>-->
+        <!--                        </div>-->
+        <!--                        <div>-->
+        <!--                            В корзине: 1-->
+        <!--                        </div>-->
+        <!--                        <div>-->
+        <!--                            <span class="fa fa-plus"></span>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+
+        <div class="catalog_card_place">
+            <div class="preloader" id="preloader">
+                <div class="preloader_text">
+                    <span id="message_for_empty"></span>
+                    <div class="lds-roller" id="lds-roller" style="margin-bottom: 60px;">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Карточка товара -->
+            <div id="content_catalog">
+                <div id="item_card_place" style="display: block;padding-top: 35px;">
+                    <div id="card_product" style="display: none;">
+                        <div class="right_nav_place">
+                            <div class="right_nav_item">
+
+                            </div>
+                        </div>
+                        <div class="discount_place">
+                            <div class="percent_place">
+                                <span class="fa fa-percent"></span>
+                            </div>
+                            <div class="discount_text">
+                                20% скидка
+                            </div>
+                        </div>
+                        <a class="slider_item_card_img_place" href="">
+                            <img src="../../../oduvan-frontend/static/img/catalog_img.png" class="slider_img" alt="Фото карточки товара">
+                        </a>
+                        <div class="name_and_price">
+                            <div class="catalog_flex" style="padding-bottom: 0px;">
+                                <div class="slider_name_bucket">Букет "Индиго"</div>
+                                <div class="price_basket slider_name_bucket" style="display: none;"></div>
+                            </div>
+                            <div class="catalog_flex_catalog for_basket"
+                                 style="align-items: center;justify-content: space-between;padding: 0 15px;">
+                                <div>
+                                    <div class="price">
+                                        5400 Р
+                                    </div>
+                                    <div class="disc_price_bucket">
+                                        2 600 Р
+                                    </div>
+                                </div>
+                                <div class="add_to_basket_card">
+                                    <span class="fas fa-shopping-bag"></span>
+                                </div>
+                            </div>
+                            <div class="added_product" style="display: none">
+                                <div class="fa fa-minus minus_counter"></div>
+                                <div style="font-size: 40px">
+                                    В корзине: <input type="number" class="product_counter_inp"/>
+                                </div>
+                                <div>
+                                    <div class="fa fa-plus plus_counter"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination_place" id="pag_place" style="text-align: center">
+                <div class="pagination_item" id="pagination_item" style="display: none">
+                    <span class="pagination_num">1</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% include 'utilites.html' %}
+<!-- Функции к каталогу -->
+<script>
+
+
+    let page = {{page}} || 1,
+        sub_category = {{sub_category}} || 0,
+        sorted_type = {{sorted_type}} || 1;
+
+    loadTopCategory();
+
+    function loadTopCategory() {
+        let categor = 0;
+        $.ajax({
+            url: '/api/category/top_category_products_count',
+            type: "GET",
+            async: false,
+            success: function (msg) {
+                console.log('TopCategory', msg);
+                categor = msg['message']['top_categories'][0]['id'];
+            }
+        });
+        id = {{id}} || categor;
+    }
+</script>
+<script src="../../../oduvan-frontend/static/js/catalog.js"></script>
+</body>
+
+</html>

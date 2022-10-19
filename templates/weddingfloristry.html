@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Свадебная флористика</title>
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+<!-- Страница свадебной флористики -->
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast" style="font-size: 11px">
+            <a style="font-size: 11px" href="/">Главная</a> / <a style="font-size: 11px" href="/weddingfloristry"
+                                                                 class="active_page" id="active_page">Свадебная
+            флористика</a>
+        </div>
+        <h1 class="catalog_zag" style="margin-top: 50px; margin-bottom: 35px;">Свадебная флористика</h1>
+        <div class="description_explanations" style="font-size: 18px; margin-bottom: 25px;">
+            Цветочная мастерская «Весёлый Одуван» — это команда профессионалов, которые с радостью воплотят в жизнь
+            любые Ваши мечты об идеальной свадьбе. Наши флористы умело сочетают современные тенденции с классикой,
+            внимательны к деталям и обладают превосходным чувством вкуса.
+            В нашей мастерской Вы можете не только подобрать неповторимый букет невесты, бутоньерку или украшения, но и
+            доверить нам полное флористическое сопровождение вашей свадьбы, включающее оформление площадки для банкета,
+            фотозоны, выездной регистрации и многое другое.
+        </div>
+    </div>
+</div>
+
+<div class="container" style="margin: 20px 0;">
+    <div class="catalog_flex_catalog" style="display: block">
+        <div class="catalog_zag" style="margin-bottom: 10px; font-size: 24px">
+            Предлагаем вам посмотреть наши подсказки для оформления заказа:
+        </div>
+        <div>
+            <ul style="padding-left: 25px;">
+                <li class="wedding_item">
+                    <div class="flex_add">
+                        <div class="list_style"></div>
+                        <span>Оформление заказа на свадьбу желательно минимум за месяц.</span>
+                    </div>
+                </li>
+                <li class="wedding_item">
+                    <div class="flex_add">
+                        <div class="list_style"></div>
+                        <span>Обязательна личная встреча.</span>
+                    </div>
+                </li>
+                <li class="wedding_item">
+                    <div class="flex_add">
+                        <div class="list_style"></div>
+                        <span>При первой встрече необходимо иметь при себе фотографии того, что хотелось бы увидеть на вашем
+                        торжестве, в каком цвете или стиле.</span>
+                    </div>
+                </li>
+                <li class="wedding_item">
+                    <div class="flex_add">
+                        <div class="list_style"></div>
+                        <span>На второй встрече мы подготавливаем проект вашего цветочного оформления,
+                            обсуждаем его и согласовываем общий бюджет.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="individual_order_info_text_info" style="width: 100%; margin-top: 50px;">
+        <div class="individual_info">
+            С нашей помощью этот прекрасный день и ваш образ будут незабываемыми!
+        </div>
+        <input type="text" class="popup_input individual_order_inp" id="individual_name" placeholder="Введите свое имя"
+        />
+        <input type="tel" class="popup_input individual_order_inp phone_number" id="phone_number_order"
+               placeholder="Введите номер телефона"
+        />
+        <div class="all_catalog_href" id="individual_order_btn" style="float: none;width: 100%">
+            Заказать свадебное оформление
+        </div>
+    </div>
+</div>
+
+
+{% include 'utilites.html' %}
+
+<script>
+
+    document.getElementById('individual_name').addEventListener('keyup', function () {
+        this.value = this.value.replace(/[0-9.]/g, "")
+    });
+    individual_order_btn.onclick = function () {
+        individualOrder();
+    }
+
+    let inputs = document.getElementsByClassName('individual_order_inp');
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].oninput = function () {
+            inputs[i].classList.remove('error');
+        }
+    }
+
+    $("#phone_number_order").mask("+7(999)999-99-99");
+    maskPhone(phone_number_order);
+
+    // Сделать индивидуальный заказ
+    function individualOrder() {
+        let inputs = document.getElementsByClassName('individual_order_inp');
+
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value === '') {
+                inputs[i].classList.add('error');
+            }
+        }
+        if (document.getElementsByClassName('error').length) return notification('Заполните обязательные поля!', 1)
+
+        let data = {
+            'name': inputs[0].value,
+            'phone': inputs[1].value,
+        }
+        $.ajax({
+            url: '/api/order/create',
+            data: data,
+            success: function (msg) {
+                inputs[0].value = '';
+                inputs[1].value = '';
+                return notification('Заказ успешно создан. Вам скоро позвонят.', 2)
+            }
+        })
+    }
+
+
+    function maskPhone(element) {
+        IMask(
+            element, {
+                mask: '+{7} (000) 000 00 00',
+                prepare: function (str) {
+                    return str.toUpperCase();
+                },
+            });
+    }
+
+</script>
+</body>
+</html>

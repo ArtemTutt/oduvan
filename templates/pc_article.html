@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+    {% include 'pc_headers.html' %}
+</head>
+<body id="body">
+<!-- Страница статьи -->
+<div style="min-height: 300px;width: 100%;position: relative">
+    <div class="article_data article_image">
+
+    </div>
+</div>
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast" style="margin-bottom: 50px">
+            <a href="/">Главная</a> / <a class="" href="/blog">Блог</a> / <a class="active_page" id="active_page"
+                                                                             href=""></a>
+        </div>
+        <h1 class="catalog_zag article_data" style="margin-bottom: 30px">Заголовок статьи</h1>
+        <div class="description_explanations article_data" style="max-width: 75%">
+            Таким образом новая модель организационной деятельности способствует подготовки и реализации новых
+            предложений. Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей
+            активности способствует подготовки и реализации дальнейших направлений развития. Повседневная практика
+            показывает, что рамки и место обучения кадров играет важную роль в формировании существенных финансовых и
+            административных условий.
+
+            Повседневная практика показывает, что укрепление и развитие структуры требуют от нас анализа позиций,
+            занимаемых участниками в отношении поставленных задач. Повседневная практика показывает, что реализация
+            намеченных плановых заданий представляет собой интересный эксперимент проверки форм развития. С другой
+            стороны укрепление и развитие структуры в значительной степени обуславливает создание соответствующий
+            условий активизации.
+        </div>
+    </div>
+</div>
+
+
+{#Слайдер#}
+<div class="catalog my_container" style="background: rgba(41, 48, 72, 0.1);">
+    <div class="container">
+        <div class="catalog_flex">
+            <h2 class="catalog_zag">Больше статей</h2>
+            <a class="all_catalog_href href_catalog" href="/blog">
+                Больше статей
+            </a>
+        </div>
+    </div>
+
+    <!-- Слайдер -->
+    <div id="disc_swiper_place" style="display: none">
+        <div class="row rw m-t-16 generelSlide" id="pop_slider_place" style="display: none; ">
+            <!-- Slider Banners -->
+            <div class="col-xs-12" style="position: relative">
+                <div class="swip_left_arrow"><span class="fa fa-chevron-left swip_arrow"></span></div>
+                <div class="swip_right_arrow"><span class="fa fa-chevron-right swip_arrow"></span></div>
+                <div class="container">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="small_blog_item" style="display: none;">
+                                <div class="flex">
+                                    <div class="art_img_place">
+                                        <img class="art_img"/>
+                                    </div>
+                                    <div style="width: 50%;padding-left: 30px;">
+                                        <div class="catalog_zag"></div>
+                                        <div class="description_explanations blog_item_text_preview"></div>
+                                        <a class="article_href" href="">Прочитать</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'pc_utilites.html' %}
+
+<script>
+    let id = {{id}};
+
+    loadArticle();
+
+    function loadArticle() {
+        let data = {
+            'article_id': id
+        }
+        $.ajax({
+            url: '/api/article/get',
+            type: "GET",
+            data: data,
+            success: function (msg) {
+                drawArticle(msg['message']['article']);
+            }
+        })
+    }
+
+    function drawArticle(article) {
+        title.innerText = article.title;
+        let article_data = document.getElementsByClassName('article_data');
+        article_data[0].style.backgroundImage = `url(${'/storage/' + article.image})`;
+        article_data[1].innerText = article.title;
+        article_data[2].innerHTML = article.text;
+        active_page.href = '/article?id=' + article.id;
+        active_page.innerText = article.title;
+    }
+
+
+    loadBlog();
+
+    function loadBlog() {
+        $.ajax({
+            url: '/api/articles/get',
+            type: "GET",
+            success: function (msg) {
+                createSlider(msg['message']['articles']);
+            }
+        })
+    }
+
+
+    function createSlider(articles) {
+        let generalBox = document.getElementsByClassName('generelSlide')[0];
+        let box = generalBox.cloneNode(true);
+        box.id = '';
+        box.style.display = 'block';
+        let swiper = box.getElementsByClassName('swiper-container')[0];
+        let wrapper = box.getElementsByClassName('swiper-wrapper')[0];
+        let left_arrow = box.getElementsByClassName('swip_left_arrow')[0];
+        let right_arrow = box.getElementsByClassName('swip_right_arrow')[0];
+        let card = box.getElementsByClassName('small_blog_item')[0];
+        let pagination_place = box.getElementsByClassName('pagination_place')[0];
+        for (let i = 0; i < articles.length; i++) {
+            let slider = createSliderBox(articles[i], card);
+            let swiper_slide = document.createElement('div');
+            swiper_slide.className = 'swiper-slide';
+            swiper_slide.append(slider);
+            wrapper.append(swiper_slide);
+            disc_swiper_place.style.display = 'block';
+            let sw = new Swiper(swiper, {
+                slidesPerView: 2,
+                slidesPerGroup: 1,
+                spaceBetween: 10,
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: right_arrow,
+                    prevEl: left_arrow,
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                parallax: {
+                    enabled: true,
+                },
+                loop: true,
+            });
+            disc_swiper_place.append(box);
+        }
+    }
+
+
+    function createSliderBox(article, card) {
+        let box = card.cloneNode(true);
+        let title = box.getElementsByClassName('catalog_zag')[0];
+        let img = box.getElementsByClassName('art_img')[0];
+        let href = box.getElementsByClassName('article_href')[0];
+        let preview = box.getElementsByClassName('description_explanations')[0];
+        title.innerText = article.title;
+        img.src = '/storage/' + article.image;
+        img.alt = article.title;
+        href.href = '/article?id=' + article.id;
+        preview.innerHTML = article.text;
+        box.style.display = 'block';
+        return box;
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог</title>
+    <meta name = "title" content="Купить свежие цветы в городе Воронеж">
+    <meta name="description" content="У нас вы найдете хороший выбор цветов и другой цветочной продукции по выгодной цене с быстрой и качетсвенной доставкой по Воронежу. Каждому покупателю подарок!">
+    {% include 'pc_headers.html' %}
+</head>
+<body id="body">
+<!-- Каталог -->
+<div class="catalog" style="background: #e9eaec">
+    <div class="container">
+        <div class="catalog_flex_catalog">
+            <!-- Сортировка в каталоге -->
+            <sidebar class="catalog_sorted">
+                <div class="place_breadcoast" id="place_bread">
+                    <a href="/">Главная</a> / <a href="/catalog" id="bread_catalog">Каталог</a>
+                </div>
+                <div id="place_top_cats">
+
+                </div>
+
+                <div class="sorted_text" style="display: block" id="sorted_text">
+                    <div id="sorted_place">
+                        <div class="catalog_flex" style="padding: 0;">
+                            <div class="sorted_select_item nohover"
+                                 style="color: #293048;border-bottom: 0;width: 45%;height: 100%;">
+                                Сортировка:
+                            </div>
+                            <div class="catalog_flex" style="padding:0">
+                                <div class="sorted_text_select" id="active_sorted">
+                                    По названию
+                                </div>
+                                <div id="chevron_for_list"><span class="fa fa-chevron-down" id="chevron_list"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sorted_select_items_list">
+                        <div class="sorted_select_items">
+                            <input class="sorted_select_item sorted_po" placeholder="По названию" readonly>
+                            <input class="sorted_select_item sorted_po" placeholder="По возрастанию цены" readonly>
+                            <input class="sorted_select_item sorted_po" placeholder="По убыванию цены" readonly>
+                            <input class="sorted_select_item sorted_po" placeholder="По размеру скидки" readonly>
+                            <input class="sorted_select_item sorted_po" placeholder="Самые популярные" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="registr_indicator" style="height:4px;background:#293048"></div>
+                <div class="sorted_zag" id="sorted_zag">
+                    Цена
+                </div>
+                <div class="catalog_flex_catalog" id="price_and_range" style="width:80%;">
+                    <div class="price_place" style="width: 48%">
+                        <span>От</span>
+                        <div id="price_ot" class="price_price">
+                            <input type="number" value="" id="price_min" /> ₽
+                        </div>
+                    </div>
+                    <div class="price_place">
+                        <span>До</span>
+                        <div id="price_do" class="price_price">
+                            <input type="number" value="" id="price_max" style="width: 78%" /> ₽
+                        </div>
+                    </div>
+                </div>
+                <input type="range" id="price_controller" min="0" max="100000" />
+
+                <div class="sorted_zag" id="flowers_zag" style="display: none">
+                    Цветы
+                </div>
+                <div id="flowers_place">
+                    <div class="choose_flower" id="choose_flower" style="display: none">
+                        <div class="checkbox" style="margin-left:5px;">
+                            <input type="checkbox" id="choose_flow_one"
+                                   class="scal_chek checkbox_for_choose_flower custom-checkbox"
+                                   style="margin-top: 20px;">
+                            <label for="choose_flow_one" class="lab_desc">
+                                <span class="name_flower"></span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="sorted_zag" id="dop_sortir" style="display: none">
+                    Упаковка
+                </div>
+                <div id="packages_place">
+                    <div class="choose_flower" id="choose_pack" style="display: none">
+                        <div class="checkbox" style="margin-left:5px;">
+                            <input type="checkbox" id="choose_flow_two"
+                                   class="scal_chek checkbox_for_choose_flower custom-checkbox"
+                                   style="margin-top: 20px;">
+                            <label for="choose_flow_two" class="lab_desc">
+                                <span class="name_flower"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="all_catalog_href" style="float: none;margin: 20px 0 15px;height: 50px;width: 100%"
+                     id="startsorting">
+                    Применить
+                </div>
+                <div style="text-align: center">
+                    <div class="bucket_na_zakaz" style="text-align: center;cursor: pointer;display: contents"
+                         id="throw_off">
+                        Сбросить
+                    </div>
+                </div>
+            </sidebar>
+            <!-- Основная часть каталога -->
+            <div class="catalog_card_place">
+                <!-- Категории -->
+                <div id="catalog_category_place" style="padding-bottom: 25px;">
+                    <div class="catalog_category all" id="catalog_cat_vse" style="display: inline-block">
+                        <div class="catalog_category_item _active" id="vse">
+                            Все
+                        </div>
+                    </div>
+                    <div class="catalog_category" id="catalog_category_card" style="display: none">
+                        <div class="catalog_category_item">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Preloader -->
+                <div class="preloader" id="preloader" style="box-shadow: none">
+                    <div class="preloader_text" style="height: 0">
+                        <span id="message_for_empty"></span>
+                        <div class="lds-roller" id="lds-roller" style="margin-left: 30px; position: absolute; top: 40px; left: 0">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content_catalog">
+                    <!-- Место для карточек товаров -->
+                    <div id="item_card_place" style="display: block;padding-top: 35px;">
+
+                        <!-- Карточка товара -->
+
+                    </div>
+                    <div class="pagination_place" id="pag_place">
+                        <a class="pagination_item" id="pagination_item" style="display: none">
+                            <span class="pagination_num">1</span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'pc_utilites.html' %}
+<!-- Функции к каталогу -->
+<script>
+    let page = {{page}} || 1,
+    sub_category = {{sub_category}} || 0,
+    sorted_type = {{sorted_type}} || 1;
+
+    loadTopCategory();
+
+    function loadTopCategory(){
+        let categor = 0;
+        $.ajax({
+            url: '/api/category/top_category_products_count',
+            type: "GET",
+            async: false,
+            success: function(msg){
+                console.log('TopCategory', msg);
+                categor = msg['message']['top_categories'][0]['id'];
+            }
+        });
+        id = {{id}} || categor;
+    }
+</script>
+<script src="../../../oduvan-frontend/static/js/pc_catalog.js"></script>
+</body>
+</html>

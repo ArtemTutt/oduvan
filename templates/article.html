@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+<!-- Страница статьи -->
+<div style="min-height: 300px;width: 100%;position: relative">
+    <div class="article_data article_image">
+
+    </div>
+</div>
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast" style="margin-bottom: 50px">
+            <a href="/">Главная</a> <span style="font-size: 35px">/</span> <a class=""  href="/blog">Блог</a> <span style="font-size: 35px">/</span> <a class="active_page" id="active_page" href="/">Заголовок статьи</a>
+        </div>
+        <h1 class="catalog_zag article_data" style="margin-bottom: 30px"></h1>
+        <div class="description_explanations article_data" id="description_explanations" style="font-size: 22px">
+
+        </div>
+    </div>
+</div>
+
+
+<div class="catalog">
+    <div class="container">
+        <h2 class="catalog_zag" style="margin-bottom: 40px">Блог</h2>
+    </div>
+    <div class="cont_on_horizontscroll">
+        <div class="container" id="articles_place" style="display: flex">
+
+
+
+
+        </div>
+    </div>
+     <div class="container">
+        <a class="all_catalog_href" href="/blog" style="margin-top: 30px; width: 400px; height: 100px; font-size: 40px">
+            Больше статей
+        </a>
+    </div>
+</div>
+
+
+{% include 'utilites.html' %}
+
+<script>
+    let id = {{ id }};
+
+
+
+
+    loadBlog();
+
+    function loadBlog(){
+        let data = {
+            'number': 3,
+        }
+        $.ajax({
+            url: '/api/articles/get_last',
+            type: "GET",
+            data: data,
+            success: function (msg) {
+                console.log(msg);
+                drawArticles(msg['message']['articles']);
+            }
+        })
+    }
+
+    function drawArticles(articles){
+        articles.map((article) => {
+        articles_place.innerHTML += `
+            <div class="blog_item_main" style="margin-right: 0; width: auto;">
+                <div class="blog_item"  style="width: 800px;">
+                    <div class="blog_item_info">
+                        <div class="blog-image-overlay">
+                            <img style="width: 100%; max-height: 850px" src="${'/storage/' + article.image}" alt="${article.title}">
+                        </div>
+                            <div class="blog_item_text">
+                                <div class="blog_item_text_zag">
+                                    ${article.title}
+                                </div>
+                                <div class="blog_item_text_preview">
+                                    ${article.text}
+                                </div>
+                                <a href="/article?id=${article.id}" class="blog_item_text_read" >
+                                    Прочитать
+                                </a>
+                            </div>
+                    </div>
+                </div>
+            </div>`
+        })
+
+    }
+
+
+    loadArticle();
+
+    function loadArticle(){
+        let data = {
+            'article_id': id
+        }
+        $.ajax({
+            url: '/api/article/get',
+            type: "GET",
+            data: data,
+            success: function (msg){
+                console.log(msg);
+                drawArticle(msg['message']['article']);
+            }
+        })
+    }
+
+    function drawArticle(article) {
+        title.innerText = article.title;
+        let article_data = document.getElementsByClassName('article_data');
+        article_data[0].style.backgroundImage = `url(${'/storage/' + article.image})`;
+        article_data[1].innerText = article.title;
+        article_data[2].innerHTML = article.text;
+
+       active_page.href = '/article?id=' + article.id;
+       active_page.innerText = article.title;
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

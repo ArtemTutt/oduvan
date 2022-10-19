@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title"></title>
+    <meta id="title_meta" name="title" content="Купить по отличной цене букет -">
+    <meta name="description"
+          content="Цветы и цветочная продукция всегда свежие и по отличной цене. Быстрая и качественная доставка по всему Воронежу.">
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast" id="place_breadcoast">
+            <a href="/">Главная</a>
+        </div>
+
+        <!-- Preloader -->
+        <div class="preloader" id="preloader">
+            <div class="preloader_text">
+                <span id="message_for_empty"></span>
+                <div class="lds-roller" style="margin-left: 30px; position: absolute; top: 100px; left: 44%">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog_flex_catalog" id="content_catalog" style="margin-top:50px; display: block">
+
+            <!-- Главная картинка -->
+            <div class="main_pictures_product_place">
+                <div class="big_product_card">
+                    <div class="small_product_place">
+                        <img style="max-height: 1000px;" src="" class="product_img" id="main_photo" alt="Картинка товара">
+                    </div>
+                </div>
+
+                <!-- Картинки снизу. Все картинки букета -->
+                <div class="all_pictures_product_place" id="all_pictures_product_place">
+                    <div class="small_product_card" id="small_product_card" style="display: none;">
+                        <div class="">
+                            <img src="" class="small_product_img"
+                                 alt="Маленькая картинка товара">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex_for_explanations_product">
+                    <div class="explanations_product" style="font-size: 48px">Инструкция свежести</div>
+                    <span class="fa fa-chevron-down" style="font-size: 34px" id="chevron_list_one"></span>
+                </div>
+                <div id="all_text_one" class="all_text" style="font-size: 16px">
+                    Поместите букет в вазу, Поставьте вазу в прохладном месте без сквозняка, вдали от прямых солнечных
+                    лучей и фруктов.
+                    Ежедневно мойте вазу, обновляйте воду и подрезайте стебли.
+                    Наслаждайтесь своим букетом. Покажите его друзьям в инстаграм и не забудьте отметить нас @одуван.
+                </div>
+                <div class="razdelitel_indicator"></div>
+
+                <div class="flex_for_explanations_product">
+                    <div class="explanations_product" style="font-size: 48px">Подробнее о доставке</div>
+                    <span class="fa fa-chevron-down" style="font-size: 34px" id="chevron_list_two"></span>
+                </div>
+                <div id="all_text_two" class="all_text" style="font-size: 16px">
+                    При заказе от 2 000 руб. доставка БЕСПЛАТНО* в любую точку г. Воронежа.
+                    При заказе до 2 000 руб. стоимость доставки рассчитывается индивидуально
+                    в зависимости от удаленности района доставки.<br>
+                    *не распространяется на праздничные дни, в том числе с 5 по 8 марта стоимость доставки
+                    рассчитывается из удаленности вашего района.
+                    Возможны задержки до 2,5 часов ввиду загруженности наших курьеров! Просим учитывать это при заказе.
+                    Доставка осуществляется с 08.00 до 20.00
+                </div>
+                <div class="razdelitel_indicator"></div>
+            </div>
+            <!-- Описание товара -->
+            <div class="description_product_place">
+                <strong class="bucket_na_zakaz" id="name_cat_bucket">Монобукет</strong>
+                <h1 class="name_buckets" id="name_bucket"
+                    style="padding-top:8px; margin-top: 30px; margin-bottom: 30px;">"Индиго"</h1>
+                <div class="disc_price_bucket" id="disc_price_bucket"
+                     style="padding:20px 0 15px 0;display: inline-block; font-size: 65px">5 400 ₽
+                </div>
+                <div class="price" id="price" style="padding:20px 0 15px 0;display: inline-block">5 400 ₽</div>
+
+                <!-- Счетчик товаров -->
+                <div class="add_to_basket_place" id="basket_place">
+                    <div id="minus_counter" class="fa fa-minus" style="text-align: center">
+                    </div>
+                    <div class="counter_place">
+                        <input type="number" class="product_counter_inp" id="counter_product" value="1">
+                        <span style="font-weight: 600;">ШТ</span>
+                    </div>
+                    <div id="plus_counter" class="plus_counter fa fa-plus" style="text-align: center">
+                    </div>
+                </div>
+
+                <a class="all_catalog_href" id="add_to_basket"
+                   style="float:none;width:100%;text-align: center; margin-top:40px;margin-bottom: 40px;height:100px;">Добавить
+                    в корзину</a>
+                <div class="description_zag">
+                    Описание
+                </div>
+                <div class="description_explanations" id="description_product">
+                    Монобукет из 23 английских роз Дэвида Остина сорта Миранда с ветками эвкaлиптa. Роза отличается
+                    классической формой английской розы и удивительной окраской, нежно-розовой со светло-зеленым отливом
+                    по краю наружных лепестков, обладает легким ароматом. Розы бережно упакованы в матовую пленку серого
+                    цвета и перевязаны декоративной лентой.
+                </div>
+                <div class="description_zag">
+                    Детали
+                </div>
+                <div class="description_explanations" style="font-size: 44px">
+                    <span id="description_explanations_item">
+                        <span id="flowers_product">Цветы: </span>
+                    </span>
+                    <span>
+                        <span id="packages_product">Упаковка: </span>
+                    </span>
+                    <span>
+                         <span id="height_product">Высота: </span>
+                    </span>
+                    <span>
+                        <span id="diameter_product">Диаметр: </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Похожее -->
+<div class="catalog" style="background: #f5f5f6;">
+    <div class="container">
+        <div class="catalog_flex">
+            <h2 class="catalog_zag" style="font-size: 80px">Похожее</h2>
+        </div>
+        <div id="swiper_place">
+            <div class="row rw m-t-16" id="slider_place">
+                <!-- Slider Banners -->
+                <div class="col-xs-12">
+                    <div class="swiper-container" style="overflow-x: hidden">
+                        <div class="swiper-wrapper"></div>
+                        <!--                        <div class="swip_left_arrow"><span class="fa fa-chevron-left swip_arrow"></span></div>-->
+                        <!--                        <div class="swip_right_arrow"><span class="fa fa-chevron-right swip_arrow"></span></div>-->
+                        <!--                        <div class="pagination_place">-->
+                        <!--                            <div class="swiper-pagination" style="position:static"></div>-->
+                        <!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="all_catalog_href" href="/catalog"
+           style="width: 50%; font-size: 46px; height: 110px; margin-top: 60px">
+            Весь каталог
+        </a>
+    </div>
+</div>
+
+<!-- Индивидуальный заказ букетов -->
+<div class="individual_order" style="height: 1800px">
+    <div class="individual_order_info" style="height: 1700px;">
+        <div class="individual_order_info_text_img">
+            <img src="/static/img/individual_img.png" style="height: 700px; object-fit: cover;" alt="Индивидуальный заказ букетов">
+        </div>
+        <div class="individual_order_info_text" style="display: block">
+            <div class="individual_order_info_text_info" style="padding: 80px 0">
+                <span class="bucket_na_zakaz" style="font-size: 28px">Букет на заказ</span>
+                <h3 class="individual_zakaz"
+                    style="font-size: 50px; width: 80%; margin: 0 auto; padding-top: 30px; padding-bottom: 40px">
+                    Индивидуальный заказ букета</h3>
+                <div class="individual_info" style="font-size: 48px; ">
+                    Не нашли то, что искали<span class="question">?</span> <br> Оформите индивидуальный заказ! Опишите пожелания по цветовой гамме, составу
+                    и упаковке
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; padding-top: 30px">
+                    <input type="text" class="popup_input individual_order_inp" placeholder="Введите свое имя"
+                           style="width: 70%" id="individual_name" />
+                    <input type="tel" class="popup_input individual_order_inp phone_number" id="phone_number_order"
+                           placeholder="Введите номер телефона"
+                           style="width: 70%"/>
+                </div>
+                <div style="display: flex;margin: 0 auto;justify-content: center">
+                    <a class="all_catalog_href" id="individual_order_btn"
+                       style=" width: 70%; height: 100px; font-size: 40px">
+                        Сделать заказ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'utilites.html' %}
+<script>
+    let id = {{id}},
+        name = '',
+        category_id = 0,
+        first_load = true;
+
+    document.getElementById('individual_name').addEventListener('keyup', function () {
+         this.value = this.value.replace(/[0-9.]/g, "")
+    });
+    function Preloader(status) {
+        if (status === 1) {
+            document.getElementById('preloader').style.display = 'block';
+            document.getElementById('content_catalog').style.display = 'none';
+            body.style.overflowY = 'hidden';
+        } else {
+            document.getElementById('preloader').style.display = 'none';
+            document.getElementById('content_catalog').style.display = 'block';
+            body.style.overflowY = 'auto';
+        }
+
+    }
+
+    function EmptyProducts() {
+        message_for_empty.innerText = 'Товаров не найдено';
+        Preloader(1);
+    }
+
+
+    getProduct();
+
+    /* Получить продукт */
+    function getProduct() {
+        let data = {
+            'id': id
+        }
+        Preloader(1);
+        $.ajax({
+            url: 'api/product/get',
+            type: 'GET',
+            data: data,
+            success: function (msg) {
+                console.log('product', msg);
+                category_id = Number(msg['message']['product']['category_id']);
+                getCategory(category_id);
+                drawProduct(msg['message']);
+                let inputs = document.getElementsByClassName('individual_order_inp');
+                for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].oninput = function () {
+                        inputs[i].classList.remove('error');
+                    }
+                }
+            }
+        })
+    }
+
+
+    /* Отрисовать продукт */
+    function drawProduct(msg) {
+        title_meta.setAttribute('content', title_meta.getAttribute('content') + ' ' + msg['product']['name']);
+        title.innerText = msg['product']['name'];
+        meta_keywords.setAttribute('content', meta_keywords.getAttribute('content') + ',' + msg['product']['name'] + ',' + msg['product']['description']);
+        console.log(msg);
+        description_product.innerText = msg['product']['description'];
+        name_bucket.innerText = msg['product']['name'];
+        name = msg['product']['name'];
+        main_photo.src = '/storage/' + msg['product']['photos'][0];
+        main_photo.alt = msg['product']['name'];
+
+        if (msg['product']['photos'].length && first_load) {
+            first_load = false;
+            for (let i = 0; i < msg['product']['photos'].length; i++) {
+
+                let images = small_product_card.cloneNode(true);
+                images.removeAttribute('id');
+                if (i === 0) {
+                    images.classList.add('_active_photo');
+                }
+                let img = images.getElementsByClassName('small_product_img')[0];
+                img.src = '/storage/' + msg['product']['photos'][i];
+                images.style.display = 'block';
+                images.onclick = function () {
+                    document.getElementsByClassName('_active_photo')[0].classList.remove('_active_photo');
+                    images.classList.add('_active_photo');
+                    main_photo.src = '/storage/' + msg['product']['photos'][i];
+                }
+                all_pictures_product_place.append(images);
+                if(msg['product']['photos'].length === 3){
+                    console.log('fjklsjfklfhklsdhf')
+                }
+            }
+        }
+
+        let count = document.getElementById('counter_product');
+        if (msg['product']['discount_type'] > 0) {
+            price.classList.add('have_disc');
+            disc_price_bucket.innerText = msg['product']['discount_cost'] + ' ₽';
+        } else {
+            disc_price_bucket.style.display = 'none';
+        }
+
+        if (msg['product']['q_count'] > 0) {
+            disc_price_bucket.innerText = Number(msg['product']['discount_cost'] * msg['product']['q_count']) + ' ₽';
+            price.innerText = Number(msg['product']['cost'] * msg['product']['q_count']) + ' ₽';
+            add_to_basket.style.display = 'none';
+            count.value = msg['product']['q_count'];
+            basket_place.style.display = 'flex';
+        } else {
+            price.innerText = Number(msg['product']['cost']) + ' ₽';
+            add_to_basket.style.display = 'flex';
+            basket_place.style.display = 'none';
+            add_to_basket.onclick = function () {
+                addProduct(msg['product']['id'], count.value);
+                add_to_basket.style.display = 'none';
+                basket_place.style.display = 'flex';
+            }
+        }
+        count.onchange = function () {
+            if (count.value === '') {
+                count.value = 1;
+
+            } else if (count.value < 1) {
+                count.value = 1;
+
+            } else {
+                changeProduct(msg['product']['id'], Number(count.value));
+            }
+            disc_price_bucket.innerText = Number(count.value * msg['product']['discount_cost']) + ' ₽';
+            price.innerText = Number(count.value * msg['product']['cost']) + ' ₽';
+        }
+
+        let minus = document.getElementById('minus_counter');
+        let plus = document.getElementById('plus_counter');
+
+        // Счетчик товаров
+
+
+        minus.addEventListener("mousedown", () => {
+            if (Number(count.value) === 1) {
+                DeleteProductBasket(msg['product']['id']);
+                add_to_basket.style.display = 'flex';
+                basket_place.style.display = 'none';
+            }
+        })
+
+
+        minus.onclick = function () {
+            if (Number(count.value) > 1) {
+                count.value--;
+                addProduct(msg['product']['id'], Number(-1));
+                disc_price_bucket.innerText = Number(count.value * msg['product']['discount_cost']) + ' ₽';
+                price.innerText = Number(count.value * msg['product']['cost']) + ' ₽';
+            }
+        }
+        plus.onclick = function () {
+            if (Number(count.value) >= 1) {
+                count.value++;
+                addProduct(msg['product']['id'], Number(1));
+                disc_price_bucket.innerText = Number(count.value * msg['product']['discount_cost']) + ' ₽';
+                price.innerText = Number(count.value * msg['product']['cost']) + ' ₽';
+            }
+        }
+
+        // Выводим детали товара
+        for (let i = 0; i < msg['flowers'].length; i++) {
+            if (!msg['flowers'][i]) {
+                continue;
+            }
+            flowers_product.innerText += ', ' + msg['flowers'][i]['name'];
+        }
+
+        if (msg['packages'].length < 1) {
+            packages_product.style.display = 'none';
+        } else {
+            for (let i = 0; i < msg['packages'].length; i++) {
+                if (i > 0) {
+                    packages_product.innerText += ', ' + msg['packages'][i]['name'];
+                } else {
+                    packages_product.innerText += ' ' + msg['packages'][i]['name'];
+                }
+            }
+        }
+        height_product.innerText += ' ' + msg['product']['height'] + ' см';
+        diameter_product.innerText += ' ' + msg['product']['diameter'] + ' см';
+
+
+        chevron_list_one.onclick = function () {
+            actionList(all_text_one);
+            positionArrow(chevron_list_one)
+        }
+
+
+        chevron_list_two.onclick = function () {
+            actionList(all_text_two);
+            positionArrow(chevron_list_two)
+        }
+        Preloader(0);
+    }
+
+    $("#phone_number_order").mask("+7(999)999-99-99");
+    maskPhone(phone_number_order);
+
+    loadProducts();
+
+    function loadProducts() {
+        $('.delete_card').remove();
+        let data = {
+            'sorted_type': 5,
+            'page_count': 16,
+        }
+        $.ajax({
+            url: '/site/products/smart',
+            type: 'POST',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            success: function (msg) {
+                console.log('loadProducts', msg);
+                createSlider(msg['message']['products']);
+            }
+        });
+    }
+
+    function createSlider(products) {
+        let sl = document.getElementById('swiper_place')
+        let box = sl.cloneNode(true);
+        let swiper = box.getElementsByClassName('swiper-container')[0];
+        let wrapper = box.getElementsByClassName('swiper-wrapper')[0];
+        // let left_arrow = box.getElementsByClassName('swip_left_arrow')[0];
+        // let right_arrow = box.getElementsByClassName('swip_right_arrow')[0];
+        let pagination_place = box.getElementsByClassName('pagination_place')[0];
+        let bullets = box.getElementsByClassName('swiper-pagination')[0];
+
+        for (let i = 0; i < products.length; i++) {
+            let slider = createProduct(products[i]);
+            let swiper_slide = document.createElement('div');
+            swiper_slide.className = 'swiper-slide';
+            swiper_slide.style.width = '45%';
+            slider.style.display = 'block';
+            slider.style.width = '100%';
+            swiper_slide.style.marginRight = '20px';
+            swiper_slide.append(slider);
+            wrapper.append(swiper_slide);
+            let sw = new Swiper(swiper, {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                spaceBetween: 10,
+                // pagination: {
+                //     el: '.swiper-pagination',
+                //     type: 'bullets',
+                // },
+                grabCursor: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                },
+                parallax: {
+                    enabled: true
+                },
+                on: {
+                    init() {
+                        this.el.addEventListener('mouseenter', () => {
+                            this.autoplay.stop();
+                        });
+
+                        this.el.addEventListener('mouseleave', () => {
+                            this.autoplay.start();
+                        });
+                    }
+                },
+            });
+            document.getElementById('slider_place').append(box);
+        }
+    }
+
+    function getCategory(category_id) {
+        console.log('categ_id', category_id);
+        $('.delete_breadcoast').remove();
+        let data = {
+            'category_id': category_id,
+        }
+        $.ajax({
+            url: 'api/category/get',
+            type: 'GET',
+            data: data,
+            success: function (msg) {
+                console.log(msg);
+                name_cat_bucket.innerText = msg['message']['category']['name'];
+                let breadcoast = BreadCoast(category_id);
+                console.log('hleb', breadcoast);
+
+                place_breadcoast.innerHTML += '<div class="delete_breadcoast" style="display: contents">' + ' <span style="font-size: 35px"> / </span> ' + `<a href="/catalog?category_id=${msg['message']['category']['parent_id']}">${breadcoast[0]}</a>` + ' <span style="font-size: 35px"> / </span> ' + `<a href="/catalog?category_id=${msg['message']['category']['parent_id']}&sub_category=${msg['message']['category']['id']}">${msg['message']['category']['name']}</a>` + '<span style="font-size: 35px"> / </span> ' +
+                    `<a href="/product?id=${id}" class="active_page">${name}</a></div>`;
+            }
+        })
+    }
+
+
+    function actionList(place) {
+        if (place.classList.contains('_active')) {
+            place.classList.remove('_active');
+        } else {
+            place.classList.add('_active');
+        }
+    }
+
+    function positionArrow(position) {
+        if (position.style.transform === 'rotate(180deg)') {
+            position.style.transform = 'rotate(0deg)';
+            position.style.transition = 'transform .3s';
+        } else {
+            position.style.transform = 'rotate(180deg)';
+            position.style.transition = 'transform .3s';
+        }
+    }
+
+
+    // Сделать индивидуальный заказ
+    function individualOrder() {
+        let inputs = document.getElementsByClassName('individual_order_inp');
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value === '') {
+                inputs[i].classList.add('error');
+            }
+        }
+        if (document.getElementsByClassName('error').length) return notification('Заполните обязательные поля!', 1)
+
+        let data = {
+            'name': inputs[0].value,
+            'phone': inputs[1].value,
+        }
+        $.ajax({
+            url: '/api/order/create',
+            data: data,
+            success: function (msg) {
+                if (msg['status'] === 'ok') {
+                    inputs[0].value = '';
+                    inputs[1].value = '';
+                    return notification('Заказ успешно создан. Вам скоро позвонят.', 2)
+                }
+            }
+        })
+    }
+
+
+</script>
+</body>
+</html>

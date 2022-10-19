@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформление заказа</title>
+    <meta name="title" content="Цветы на любой вкус с быстрой и качественной доставкой. Купи прямо сейчас">
+    <meta name="description" content="Цветы и цветочная продукция всегда свежие и по отличной цене. Быстрая и качественная доставка по всему Воронежу.">
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast">
+            <a href="/">Главная</a> / <a href="/createorder" class="active_page">Оформление заказа</a>
+        </div>
+         <!-- В корзине пусто -->
+        <div class="basket_place" id="basket_place" style="min-height: 90vh;display: none;">
+            <div class="empty_basket" id="empty_basket_createorder">
+                <div class="empty_basket_info">
+                    <div class="name_buckets" style="color: #F54343; margin-top: 90px;">
+                        В корзине пусто!
+                        <a class="all_catalog_href" href="/catalog" style="width: 80%; margin: 70px auto;">
+                            Перейти в каталог
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="catalog_flex createorder" style="display: block">
+            <div class="requisites_place">
+                <div class="name_buckets">
+                    Отправитель
+                </div>
+                <input class="popup_input" placeholder="Ваше имя" id="name_user" />
+                <input class="popup_input" type="tel" placeholder="+7 (___) ___-__-__" id="phone_user" readonly />
+                <input class="popup_input" type="email" placeholder="Электронная почта" id="email_user" />
+                <input class="popup_input" type="text" placeholder="Адрес куда доставить" id="address_user" />
+
+                <div id="addresses_place">
+                    <div class="add_address add_address_order" id="address_item"
+                         style="display: none;height: auto;min-height: 310px; margin-bottom: 40px;">
+                        <div class="data_address address_info">
+
+                            <div class="catalog_flex info">
+                                <div class="address_info_zag"  style="font-size: 35px">
+                                    Название:
+                                </div>
+                                <div class="address_info_zag name_address_user"  style="font-size: 35px">
+                                    г.Воронеж, ул.Урыского, 2В
+                                </div>
+                            </div>
+                            <div class="catalog_flex info">
+                                <div class="address_info_zag"  style="font-size: 35px">
+                                    Адрес:
+                                </div>
+                                <div class="address_info_zag address_address_user" style="font-size: 35px">
+                                    г.Воронеж, ул.Урыского, 2В
+                                </div>
+                            </div>
+                            <div class="catalog_flex info" style="margin-top:15px;border-bottom: 0;">
+                                <div class="all_catalog_href choose_address" style="background: white; color: black; width: 100%; margin-top: 40px;">
+                                    Выбрать
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="checkbox" id="get_other_people_place" style="margin-left:5px;">
+                    <input type="checkbox" id="get_other_people"
+                           class="scal_chek custom-checkbox" style="margin-top: 20px;">
+                    <label for="get_other_people" class="lab_desc sub_zag">Отправить другому человеку</label>
+                </div>
+                <div id="recipient">
+                    <div class="name_buckets">
+                        Получатель
+                    </div>
+                    <input class="popup_input input_sender" placeholder="Имя получателя" id="name_sender">
+                    <input class="popup_input input_sender" type="tel" placeholder="+7 (___) ___-__-__"
+                           id="phone_sender">
+                </div>
+                <div class="name_buckets">
+                    Дополнительно
+                </div>
+                <input class="popup_input additionally_input" id="comment_order" placeholder="Комментарии к заказу">
+                <input class="popup_input additionally_input" id="text_order" placeholder="Текст для открытки">
+
+                <div class="catalog_flex">
+                    <div class="checkbox" style="margin-left:5px;">
+                        <input type="checkbox" id="add_carrying"
+                               class="scal_chek custom-checkbox additionally_input" value="0" style="margin-top: 20px;">
+                        <label for="add_carrying" class="lab_desc sub_zag">Добавить переноску</label>
+                    </div>
+                    <div class="checkbox" style="margin-left:5px;">
+                        <input type="checkbox" id="add_aquapack"
+                               class="scal_chek custom-checkbox additionally_input" value="0" style="margin-top: 20px;">
+                        <label for="add_aquapack" class="lab_desc sub_zag">Добавить аквапак</label>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="your_order_place">
+                <div class="your_order">
+                    <div class="name_buckets">
+                        Ваш заказ
+                    </div>
+                    <div class="description_explanations">
+                        <select class="popup_input" id="select_shops" style="display: none;padding: 0 10px;">
+                            <option value="-1" style="font-size: 16px;">Не выбрано</option>
+                        </select>
+                        <!--                        <div class="catalog_flex">-->
+                        <!--                            <div class="address_info_zag">-->
+                        <!--                                Доставка в точное время-->
+                        <!--                            </div>-->
+                        <!--                            <span class="fa fa-chevron-down"></span>-->
+                        <!--                        </div>-->
+                        <div id="date_time_place">
+                            <div class="catalog_flex" style="position: relative; margin-bottom: 32px">
+                                <div class="date_input" id="date_input_one">
+                                    <input type="date" class="popup_input" id="inp_choose_data">
+                                </div>
+                                <div class="address_info_zag" id="addres_info_date" style="font-size: 36px">
+                                    <!--06.07.2021-->
+                                </div>
+                                <span id="choose_data" style="font-size: 36px">Выбрать дату</span>
+                            </div>
+
+                            <div class="catalog_flex" style="position: relative; margin-bottom: 32px">
+                                <div class="date_input" id="date_input_two">
+                                    <input type="time" class="popup_input" id="inp_choose_time">
+                                </div>
+                                <div class="address_info_zag" id="addres_info_time" style="font-size: 36px">
+                                    <!--21:00-->
+                                </div>
+                                <span id="choose_time" style="font-size: 36px">Выбрать время</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="catalog_flex" style="justify-content: space-between;padding:0">
+                        <div class="price_price" style="color:#293048;opacity:0.6">
+                            Сумма заказа
+                        </div>
+                        <div class="catalog_flex_catalog" style="align-items: center; width: auto">
+                            <div class="disc_price_bucket final_dics_price" style="margin-right: 15px; display: block;">
+                                9000 ₽
+                            </div>
+                            <div class="price final_price">10000 ₽</div>
+                        </div>
+                    </div>
+                    <div class="registr_indicator" style="background: #293048; margin:10px 0;"></div>
+                    <!--                    <div class="catalog_flex" style="justify-content: space-between">-->
+                    <!--                        <div class="price_price" style="color:#293048;opacity:0.6">-->
+                    <!--                            + Доставка вовремя-->
+                    <!--                        </div>-->
+                    <!--                        <div class="price_price" style="float: right">-->
+                    <!--                            1000 Р-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+
+                    <div class="basket_item_place" style="display: none">
+
+                    </div>
+
+                    <!--                    <div class="catalog_flex" style="align-items: normal;justify-content: normal">-->
+                    <!--                        <div class="small_product_card" style="margin-right:15px;">-->
+                    <!--                            <div class="small_product_place">-->
+                    <!--                                <img src="../static/img/slider_img.png" class="small_product_img">-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                        <div>-->
+                    <!--                            <div class="bucket_na_zakaz">-->
+                    <!--                                Букет индиго-->
+                    <!--                            </div>-->
+                    <!--                            <div class="price">-->
+                    <!--                                5400 Р-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+
+                    <!-- Карточка товара в корзине -->
+                    <div id="basket_item_place" style="display: none; margin-bottom: 70px;">
+                        <div class="basket_item" id="basket_item" style="display: none;">
+                            <div class="catalog_flex" style="justify-content: normal">
+                                <div class="small_product_card" style="margin-right:15px;">
+                                    <a class="small_product_place">
+                                        <img src="../../../oduvan-frontend/static/img/small_img_main.png" class="small_product_img" id="product_photo" alt="Фото карточки товара"
+                                             style="margin-bottom: 95px; height: 243px;">
+                                    </a>
+                                </div>
+                                <div class="basket_info_for_order" style="margin-left: 34px;">
+                                    <div class="bucket_na_zakaz">
+                                        Букет "Индиго"
+                                    </div>
+                                    <div class="catalog_flex_catalog" style="align-items: center">
+                                        <div class="disc_price_bucket" style="margin-right: 15px;">
+                                            2 600 Р
+                                        </div>
+                                        <div class="price">
+                                            5400 Р
+                                        </div>
+                                    </div>
+                                    <div class="fa fa-times"
+                                         style="float: right; position: absolute; top: 70px; right: 0; font-size: 25px"></div>
+                                    <div class="add_to_basket_place" style="max-width:100%;">
+                                        <div class="fa fa-minus minus_counter"></div>
+                                        <div class="counter_place">
+                                            <input type="number" class="product_counter_inp"
+                                                   value="1">
+                                            <span style="font-weight: 600;">ШТ</span>
+                                        </div>
+                                        <div class="fa fa-plus plus_counter"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="catalog_flex" style="justify-content: space-between;margin-bottom: -27px;">
+                        <div class="price_price" style="color:#293048;opacity:0.6">
+                            Итого:
+                        </div>
+                        <div class="catalog_flex_catalog" style="align-items: center;width: auto">
+                            <div class="disc_price_bucket final_dics_price "
+                                 style="margin-right: 15px; display: block;">9000 ₽
+                            </div>
+                            <div class="price final_price">10000 ₽</div>
+                        </div>
+                    </div>
+                    <div class="registr_indicator" style="background: #293048;margin:10px 0;"></div>
+                    <input class="popup_input" placeholder="Введите промокод" id="promo_code_code"
+                           style="margin-top: 50px">
+                    <div class="all_catalog_href" style="float: none;width:100%;height:90px;" id="promo_code">
+                        Применить промокод
+                    </div>
+                    <div class="blog_item_text_zag" style="text-align: center;margin:40px 0;">Платёжные системы</div>
+                    <div style="width:100%; display: flex; flex-direction: row; justify-content: space-between">
+                        <div class="system_item">
+                            <div class="small_product_place">
+                                <img src="../../../oduvan-frontend/static/img/mastercard.png" class="small_product_img" alt="Мастеркард"
+                                     style="padding-top: 10px; width: auto; height: 70px;">
+                            </div>
+                        </div>
+                        <div class="system_item">
+                            <div class="small_product_place">
+                                <img src="../../../oduvan-frontend/static/img/visa.png" class="small_product_img" style="width: auto; height: 70px;" alt="Виза">
+                            </div>
+                        </div>
+                        <div class="system_item">
+                            <div class="small_product_place">
+                                <img src="../../../oduvan-frontend/static/img/mir.png" class="small_product_img" alt="Мир" style="width: auto; height: 70px;">
+                            </div>
+                        </div>
+                        <div class="system_item">
+                            <div class="small_product_place">
+                                <img src="../../../oduvan-frontend/static/img/applepay.png" class="small_product_img" alt="Эплпай" style="width: auto; height: 70px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="name_buckets" style="margin-top: 40px">
+                        Способ оплаты
+                    </div>
+                    <div class="catalog_flex">
+                        <div class="checkbox" style="margin-left:5px;">
+                            <input type="checkbox" id="money_payment"
+                                   class="scal_chek custom-checkbox" style="margin-top: 20px;">
+                            <label for="money_payment" class="lab_desc sub_zag">Наличные</label>
+                        </div>
+                        <div class="checkbox" style="margin-left:5px;">
+                            <input type="checkbox" id="card_payment"
+                                   class="scal_chek custom-checkbox" style="margin-top: 20px;">
+                            <label for="card_payment" class="lab_desc sub_zag">Картой</label>
+                        </div>
+                    </div>
+
+                    <div class="all_catalog_href" id="oformit_zakaz"
+                         style="float: none;width:100%;height:90px;justify-content: space-between;padding:0 10px">
+                        <div class="pereiti_k_oform" id="pereiti_k_oform">Подтвердить заказ</div>
+                        <div class="catalog_flex_catalog" style="align-items: center;width: auto">
+                            <div class="disc_price_bucket final_dics_price" style="margin-right: 15px; display: block;">
+                                9000 ₽
+                            </div>
+                            <div class="price final_price">10000 ₽</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'utilites.html' %}
+
+<script>
+
+    // Переменные для запроса об отправке заявки
+    let shop_id = 0,
+        address = '',
+        additionally = [],
+        purchase_type = 0,
+        time_value = '',
+        my_full_time,
+        time_for_limit,
+        my_null = 0,
+        promo_code_id = 0,
+        payment_type = 0
+    ;
+
+
+
+    // Создание динамического времени и даты
+    let timeElapsed = Date.now();
+    let today = new Date(timeElapsed);
+    let day_now = today.toLocaleDateString().split('.').reverse().join('-');
+    {#addres_info_date.innerText = day_now.split('-').reverse().join('.');#}
+
+
+    let todayy = new Date;
+    let my_hours = todayy.getHours();
+    let my_min = todayy.getMinutes();
+    if (my_min < 10) {
+        let gab = my_null + '' + my_min
+        my_full_time = my_hours + ':' + gab;
+    } else {
+        my_full_time = my_hours + ':' + my_min;
+    }
+    // let my_full_time = my_hours + ':' + my_min;
+    {#addres_info_time.innerText = my_full_time;#}
+
+
+    const options = {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+    }
+
+    const date = new Date()
+    date.setDate(date.getDate())
+
+    const on_block = date.toLocaleString("ru", options).split('.').reverse().join('-')
+    document.getElementById("inp_choose_data").setAttribute("min", on_block)
+
+
+    let inp_data = document.getElementById('date_input_one');
+    choose_data.onclick = function () {
+        inp_data.classList.add('_active');
+
+    }
+
+    if(my_min < 10){
+        time_for_limit = (my_hours + 2) + ':' + 0 + my_min;
+    }else {
+        time_for_limit = (my_hours + 2) + ':' + my_min;
+    }
+
+    inp_choose_time.min = my_full_time;
+    inp_choose_time.max = time_for_limit;
+
+    {#inp_choose_time.onchange = function () {#}
+    {#    time_value = inp_choose_time.value;#}
+    {#    inp_time.classList.remove('_active');#}
+    {#    addres_info_time.innerText = time_value;#}
+    {##}
+    {##}
+    {#    // РЕЖИМ РАБОТЫ С 8:00 ДО 20:00#}
+    {#    if (time_value <= inp_choose_time.min && time_value >= inp_choose_time.max) {#}
+    {#        notification('Наш график работы с 8:00 до 20:00', 1);#}
+    {#    } else {#}
+    {#        notification('Все успешно', 2);#}
+    {#    }#}
+
+
+
+     inp_choose_data.onchange = function () {
+        let data_value = inp_choose_data.value;
+        inp_data.classList.remove('_active');
+        addres_info_date.innerText = data_value.split('-').reverse().join('.');
+        // ПРОВЕРКА НА СОВПАДЕНИЕ ДАТЫ
+        console.log('1', data_value);
+        console.log('2', day_now);
+        inp_choose_time.onchange = function (){
+            if (data_value === day_now) {
+                console.log('Почему');
+                time_value = inp_choose_time.value;
+                addres_info_time.innerText = time_value;
+                console.log(time_value)
+                if(time_value <= inp_choose_time.max && time_value >= inp_choose_time.min){
+                     notification('Заказ будет готов не раньше чем через 2 часа, выберете другое время', 1);
+                }
+                 if(time_value < inp_choose_time.min){
+                     notification('Мы не доставляем букеты в прошлое)', 1);
+                 }
+            }
+            inp_time.classList.remove('_active');
+        }
+    }
+
+
+    let inp_time = document.getElementById('date_input_two');
+    choose_time.onclick = function () {
+        inp_time.classList.add('_active');
+    }
+
+    maskPhone(phone_sender);
+
+    drawUserInfo();
+    function drawUserInfo() {
+        name_user.value = user['name'] + ' ' + user['surname'];
+        phone_user.value = '+7' + user['phone'];
+        email_user.value = user['email'];
+        loadBasketOrder();
+        if (user['addresses'].length > 0 && purchase_type !== 1) {
+            addresses_place.style.display = 'flex';
+            addresses_place.style.flexDirection = 'column';
+            for (let i = 0; i < user['addresses'].length; i++) {
+                let address = address_item.cloneNode(true);
+                address.id = '';
+                address.style.display = 'inline-block';
+                let name = address.getElementsByClassName('name_address_user')[0];
+                let address_user_add = address.getElementsByClassName('address_address_user')[0];
+                let choose = address.getElementsByClassName('choose_address')[0];
+
+                name.innerText = user['addresses'][i]['name'];
+                address_user_add.innerText = user['addresses'][i]['address'];
+                choose.onclick = function () {
+                    address_user.value = user['addresses'][i]['address'];
+                }
+                if (user['addresses'].length === 1) {
+                    address.style.width = '100%';
+                    address.style.minHeight = '310px';
+                } else if (user['addresses'].length === 2) {
+                    address.style.width = '100%';
+                } else {
+                    address.style.width = '100%';
+                }
+                addresses_place.append(address);
+            }
+        }
+    }
+
+
+
+
+
+     // Подгрузка товаров для оформления заказа
+    function loadBasketOrder() {
+        $.ajax({
+            url: '/api/basket/get_by_basket_id',
+            type: 'GET',
+            success: function (msg) {
+                purchase_type = msg['message']['basket']['purchase_type'];
+                if (purchase_type === 1) {
+                    shop_id = -1;
+                    date_time_place.style.display = 'none';
+                    loadShops();
+                    get_other_people_place.style.display = 'none';
+                    address_user.style.display = 'none';
+                    addresses_place.style.display = 'none';
+                }
+                if (msg['message']['products'].length === 0) {
+                    document.getElementsByClassName('createorder')[0].style.display = 'none';
+                    document.getElementById('empty_basket_createorder').style.display = 'block';
+                    basket_place.style.display = 'block';
+                }
+                $('.delete_card').remove();
+                let final_price = document.getElementsByClassName('final_price');
+                let disc_price_bucket = document.getElementsByClassName('final_dics_price');
+                for (let i = 0; i < final_price.length; i++) {
+                    if (msg['message']['basket']['promo_code'] > 0) {
+                        final_price[i].innerText = msg['message']['basket']['cost'] + ' ₽';
+                        final_price[i].classList.add('have_disc');
+                        disc_price_bucket[i].innerText = msg['message']['basket']['discount_cost'] + ' ₽';
+                    } else {
+                        final_price[i].innerText = msg['message']['basket']['cost'] + ' ₽';
+                        disc_price_bucket[i].style.display = 'none';
+                    }
+                }
+                drawBasketOrder(msg['message']['products']);
+            }
+        })
+    }
+
+
+
+
+
+
+   // Загрузка магазинов
+    function loadShops() {
+        $.ajax({
+            url: '/api/shops/get',
+            type: "GET",
+            success: function (msg) {
+                $('.delete_shop').remove();
+                // Если пользователь не выбрал магазин для доставки, то при ончейндж селекта, еррор пропадает
+                for (let i = 0; i < msg['message']['shops'].length; i++) {
+                    let option = document.createElement('option');
+                    option.value = msg['message']['shops'][i]['id'];
+                    option.className = 'delete_shop';
+                    option.innerText = msg['message']['shops'][i]['address'];
+                    select_shops.append(option);
+                }
+                select_shops.style.display = 'block';
+                select_shops.onchange = function () {
+                    shop_id = select_shops.value;
+                    select_shops.classList.remove('error');
+                }
+            }
+        })
+    }
+
+
+    // // Изменение количества товара
+    // function changeCounter(action) {
+    //     console.log(Number(counter_product.value));
+    //     if (action === 1) {
+    //         counter_product.value += 1;
+    //     } else {
+    //         if (counter_product.value === 1) {
+    //             minus_counter.classList.add('none_active');
+    //             return;
+    //         } else {
+    //             counter_product.value -= 1;
+    //         }
+    //     }
+    // }
+
+
+
+
+     $('#address_user').suggestions({
+        token: "4ccc103e564e4ac71304d2271478c3a47d46c692",
+        type: "ADDRESS",
+         constraints: {
+             locations: {
+                 kladr_id: "3600000100000"
+             }
+         },
+        /* Вызывается, когда пользователь выбирает одну из подсказок */
+        onSelect: function (suggestion) {
+            if (Number(suggestion['data']['fias_level']) < 8) {
+                return notification('Укажите точный адрес', 1);
+            }
+            // address_data = suggestion['value'];
+        },
+        restrict_value: true
+    })
+
+
+
+       // Отрисовка товаров
+    function drawBasketOrder(products) {
+        for (let i = 0; i < products.length; i++) {
+            let box = createProductBasket(products[i]);
+            box.style.display = 'block';
+            box.classList.add('delete_card');
+            document.getElementById('basket_item_place').append(box);
+        }
+
+        document.getElementById('basket_item_place').style.display = 'block';
+        /* Если чекбокс "Отправить другому человеку поставлен, то открываем блок "Получатель"" */
+        get_other_people.onchange = function () {
+            if (get_other_people.checked) {
+                recipient.className = '_active';
+            } else {
+                recipient.classList.remove('_active');
+            }
+        }
+        // Проверка промокода
+        promo_code.onclick = function () {
+            checkPromoCode();
+        }
+
+        // Выбор наличными оплата или картой
+        money_payment.onchange = function () {
+            if (card_payment.checked) {
+                card_payment.checked = false;
+            } else {
+                money_payment.checked = true;
+            }
+        }
+        card_payment.onchange = function () {
+            if (money_payment.checked) {
+                money_payment.checked = false;
+            } else {
+                card_payment.checked = true;
+            }
+        }
+
+        // Если на поля получателя были добавлены классы error (не были заполнены), то, когда они будут заполняться, класс пропадёт
+        let inputs = document.getElementsByClassName('input_sender');
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].oninput = function () {
+                if (inputs[i].value.length > 0) {
+                    inputs[i].classList.remove('error');
+                }
+            }
+        }
+
+        // Если пользователь не указал или не выбрал адрес доставки, то снимаем инпуту error, как только начнёт вводить
+        address_user.oninput = function () {
+            address_user.classList.remove('error');
+        }
+
+        // Аквапак и переноска
+        add_carrying.onchange = function () {
+            if (add_carrying.checked) {
+                add_carrying.value = 1;
+                additionally[2] = 1;
+            } else {
+                additionally[2] = 0;
+                add_carrying.value = 0;
+            }
+        }
+        add_aquapack.onchange = function () {
+            if (add_aquapack.checked) {
+                add_aquapack.value = 1;
+                additionally[3] = 1;
+            } else {
+                add_aquapack.value = 0;
+                additionally[3] = 0;
+            }
+        }
+        comment_order.onchange = function () {
+            if (comment_order.value === '') {
+                additionally[0] = '';
+            } else {
+                additionally[0] = comment_order.value;
+            }
+        }
+        text_order.onchange = function () {
+            if (text_order.value === '') {
+                additionally[1] = '';
+            } else {
+                additionally[1] = text_order.value;
+            }
+        }
+    }
+
+    // function removeItemAll(arr, value) {
+    //     var i = 0;
+    //     while (i < arr.length) {
+    //         if (arr[i] === value) {
+    //             arr.splice(i, 1);
+    //         } else {
+    //             ++i;
+    //         }
+    //     }
+    //     return arr;
+    // }
+
+
+
+   // Функция проверки промокода
+    function checkPromoCode() {
+        let data = {
+            'promo_code': promo_code_code.value,
+        }
+        $.ajax({
+            url: '/api/promo_code/accept_promo_code',
+            type: "GET",
+            data: data,
+            success: function (msg) {
+                if (msg['status'] === 'error') {
+                    notification('Такого промокода не существует', 1);
+                } else {
+                    loadBasketOrder();
+                    notification('Промокод успешно использован', 2);
+                }
+            }
+        })
+    }
+
+
+    // При нажатии на кнопку "Оформить заказ" вызываем функцию
+    pereiti_k_oform.onclick = function () {
+        placeOrder();
+    }
+
+    // Проверки перед заказом
+    function placeOrder() {
+        // Если чекбокс "Отправить другому человеку" checked, то проверяем все ли поля получателя заполнены
+        if (get_other_people.checked) {
+            let inputs = document.getElementsByClassName('input_sender');
+            for (let i = 0; i < inputs.length; i++) {
+                if (inputs[i].value === '') {
+                    inputs[i].classList.add('error');
+                    notification('Заполните обязательные поля', 1);
+                }
+            }
+            if(document.getElementsByClassName('error').length) return notification('Заполните обязательные поля!', 1);
+        }
+
+        if (!money_payment.checked && !card_payment.checked) {
+            return notification('Выберите способ оплаты', 1);
+        }
+        if (shop_id === -1) {
+            notification('Выберите магазин, в котором получите товар', 1);
+            return select_shops.classList.add('error');
+        }
+        if (purchase_type === 2 && address_user.value === '') {
+            notification('Заполните адрес доставки', 1);
+            return address_user.classList.add('error');
+        }
+
+        createDeal();
+    }
+
+    // Функция оформления заказа отправляется в банк
+    function createDeal() {
+        let data = {
+            'shop_id': shop_id,
+        }
+        $.ajax({
+            url: 'api/deal/create',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            success: function (msg) {
+                console.log(msg);
+            }
+        })
+    }
+
+
+
+
+</script>
+</body>
+</html>

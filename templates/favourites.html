@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформление заказа</title>
+    <meta name="description" content="Цветы и цветочная продукция всегда свежие и по отличной цене. Быстрая и качественная доставка по всему Воронежу.">
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+
+<div class="catalog" style="background: #e9eaec">
+    <div class="container">
+        <div class="place_breadcoast">
+            <a href="/">Главная</a> <span style="font-size: 35px">/</span> <a href="/favorites" class="active_page">Избранное</a>
+        </div>
+        <h1 class="catalog_zag" style="text-align: center; margin-top: 40px;">Избранное</h1>
+    </div>
+</div>
+
+
+<!-- Preloader -->
+<div class="preloader" id="preloader" style="box-shadow: none; height: 500px">
+    <div class="preloader_text" style="height: 0">
+        <span id="message_for_empty"></span>
+        <div class="lds-roller" id="lds-roller" style="margin-left: 30px; position: absolute; top: 40px; left: 0">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- В избранном пусто -->
+<div class="basket_place" id="basket_place" style="min-height: 63vh;display: none;">
+    <div class="empty_basket" id="empty_basket_createorder">
+        <div class="empty_basket_info">
+            <div class="name_buckets" style="color: #F54343; margin-top: 20px;">
+                В избранном нет товаров!
+                <a class="all_catalog_href" href="/catalog" style="margin: 0 auto; width: 90%; height: 100px; font-size: 46px; margin-top: 40px;">
+                    Перейти в каталог
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="catalog" id="catalog" style="min-height: 500px;">
+    <div class="container">
+        <div id="favorites_place">
+            <div id="card_product" style="display: none;">
+                <div class="right_nav_place">
+                    <div class="right_nav_item">
+
+                    </div>
+                </div>
+                <div class="discount_place">
+                    <div class="percent_place">
+                        <span class="fa fa-percent"></span>
+                    </div>
+                    <div class="discount_text">
+                        20% скидка
+                    </div>
+                </div>
+                <a class="slider_item_card_img_place" href="">
+                    <img src="../../../oduvan-frontend/static/img/catalog_img.png" alt="Фото товара" class="slider_img">
+                </a>
+                <div class="name_and_price">
+                    <div class="catalog_flex" style="padding-bottom: 0px;">
+                        <div class="slider_name_bucket">Букет "Индиго"</div>
+                        <div class="price_basket slider_name_bucket" style="display: none;"></div>
+                    </div>
+                    <div class="catalog_flex_catalog for_basket"
+                         style="align-items: center;justify-content: space-between;padding: 0 15px;">
+                        <div>
+                            <div class="price">
+                                5400 Р
+                            </div>
+                            <div class="disc_price_bucket">
+                                2 600 Р
+                            </div>
+                        </div>
+                        <div class="add_to_basket_card">
+                            <span class="fas fa-shopping-bag"></span>
+                        </div>
+                    </div>
+                    <div class="added_product" style="display: none">
+                        <div class="fa fa-minus minus_counter"></div>
+                        <div>
+                            В корзине: <input type="number" class="product_counter_inp"/>
+                        </div>
+                        <div>
+                            <div class="fa fa-plus plus_counter"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% include 'utilites.html' %}
+<script>
+
+    function Preloader(status) {
+        if (status === 1) {
+            document.getElementById('preloader').style.display = 'block';
+            document.getElementById('catalog').style.display = 'none';
+        } else {
+            document.getElementById('preloader').style.display = 'none';
+            document.getElementById('catalog').style.display = 'block';
+        }
+
+    }
+
+    loadFavorites()
+
+    /* Правильная подгрузка продуктов */
+    function loadFavorites() {
+        Preloader(1)
+        $.ajax({
+            url: '/api/user/list_likes',
+            type: "GET",
+            success: function (msg) {
+                if (msg['status'] === 'error') {
+                    basket_place.style.display = 'flex';
+                    catalog.style.display = 'none';
+                    empty_basket_createorder.style.display = 'block';
+                    Preloader(0);
+                } else if (!msg['message']['products'].length) {
+                    basket_place.style.display = 'flex';
+                    empty_basket_createorder.style.display = 'block';
+                    catalog.style.display = 'none';
+                } else {
+                    for (let i = 0; i < msg['message']['products'].length; i++) {
+                        if (msg['message']['products'][i] !== null) {
+                            likeds.push(Number(msg['message']['products'][i]));
+                            drawProducts(msg['message']['products'][i]);
+                        }else {
+                            Preloader(0);
+                            document.getElementById('lds-roller').style.display = 'none';
+                        }
+                    }
+
+                }
+            }
+        })
+    }
+
+
+    function drawProducts(product) {
+        let box = createProduct(product);
+        box.style.display = 'inline-block';
+        box.style.width = '47%';
+        box.style.height = '510px'
+        document.getElementById('favorites_place').append(box);
+    }
+
+
+
+
+</script>
+</body>
+</html>

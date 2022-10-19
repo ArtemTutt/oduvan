@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Возврат</title>
+    {% include 'headers.html' %}
+</head>
+<body id="body">
+<!-- Страница статьи -->
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast" style="font-size: 11px">
+            <a style="font-size: 11px" href="/">Главная</a> / <a style="font-size: 11px" href="/returnproduct" class="active_page" id="active_page">Возврат</a>
+        </div>
+        <h1 class="catalog_zag" style="margin-top: 50px; margin-bottom: 30px;">Возврат</h1>
+        <div class="description_explanations" style="font-size: 18px">
+           Флористы «Весёлого Одувана» тщательно собирают каждый букет и композицию, отбирая только лучшие цветы. Мы гарантируем их свежесть и максимальное соответствие доставляемого заказа информации, опубликованной на сайте ……В зависимости от сезонности, наличия цветов и других факторов мы оставляем за собой право замены цветов в букете после предварительного согласования с заказчиком.
+        </div>
+    </div>
+</div>
+
+<div class="catalog" style="min-height: 578px">
+    <div class="container">
+        <div class="catalog_flex_catalog" style="display: block">
+
+            <div class="blog_art_text description_explanations" style="line-height: 130%; font-size: 16px">
+                В соответствии с Законом Российской Федерации «О защите прав потребителей» от 07.02.1992 № 2300-1 (в ред. от 25.10.2007г.) и Постановлением Правительства Российской Федерации от 19.01.1998 № 55 (в ред. 27.03.2007г.) срезанные цветы и горшечные растения обмену и возврату не подлежат (указаны в Перечне непродовольственных товаров надлежащего качества, не подлежащих возврату или обмену).
+                Вы имеет право отказаться от получения товара в момент его доставки, если доставленный товар ненадлежащего качества (на основании п.3 ст. 497 ГК РФ, статья 21 Закона «О защите прав потребителей»). Все претензии о качестве и спорные ситуации мы рассмотрим в максимально короткие сроки.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% include 'utilites.html' %}
+
+<script>
+    {#let id = {{ id }};#}
+    active_page.href = location.href;
+</script>
+</body>
+</html>

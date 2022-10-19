@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Юридическая информация</title>
+    {% include 'pc_headers.html' %}
+</head>
+<body id="body">
+<!-- Страница доставки -->
+<div class="catalog">
+    <div class="container">
+        <div class="place_breadcoast">
+            <a href="/">Главная</a> / <a href="/legalinformation" class="active_page" id="active_page">Юридическая информация</a>
+        </div>
+        <h1 class="catalog_zag" style="margin-top: 40px; margin-bottom: 20px;">Юридическая информация</h1>
+        <div class="description_explanations" style="width: 100%; font-size: 22px">
+            Команда «Весёлого Одувана» заботится  не только о красоте и свежести цветов, но и о качественной и
+            своевременной доставке.
+            Наша курьерская служба быстро, бережно и с улыбкой доставит Ваш заказ получателю.
+        </div>
+    </div>
+</div>
+
+<div class="catalog" style="min-height: 483px">
+    <div class="container">
+        <div class="catalog_flex_catalog">
+            <div class="blog_art_text description_explanations" style="line-height: 130%; padding-left: 0; width: 100%;">
+                При заказе от 2 000 руб. доставка БЕСПЛАТНО* в любую точку г. Воронежа.
+                При заказе до 2 000 руб. стоимость доставки рассчитывается индивидуально
+                в зависимости от удаленности района доставки.
+                *не распространяется на праздничные дни, в том числе с 5 по 8 марта стоимость доставки
+                рассчитывается из удаленности вашего района.
+                Возможны задержки до 2,5 часов ввиду загруженности наших курьеров! Просим учитывать это при заказе.
+                Доставка осуществляется с 08.00 до 20.00.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% include 'pc_utilites.html' %}
+
+<script>
+    {#let id = {{ id }};#}
+</script>
+</body>
+</html>
